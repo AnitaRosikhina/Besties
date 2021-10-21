@@ -3,31 +3,31 @@
     <span class="top_line_title">FREE SHIPPING - ORDER TODAY</span>
   </section>
   <section class="middle_line">
-    <div class="middle_line_left_block">
-      <div class="middle_line_icon">
-        <img class="icon_paw" src="assets/icons/paw.png">
+      <div class="middle_line_left_block" routerLink="home">
+        <div class="middle_line_icon">
+          <img class="icon_paw" src="assets/icons/paw.png">
+        </div>
+        <div>
+          <div class="middle_line_title">BESTIES</div>
+          <div class="middle_line_description">A Pet's Favorite Place</div>
+        </div>
       </div>
-      <div>
-        <div class="middle_line_title">BESTIES</div>
-        <div class="middle_line_description">A Pet's Favorite Place</div>
+      <div class="middle_line_right_block">
+        <div>Call Us</div>
+        <div>123-456-789</div>
       </div>
-    </div>
-    <div class="middle_line_right_block">
-      <div>Call Us</div>
-      <div>123-456-789</div>
-    </div>
-    <div class="middle_line_right_sidebar">
-      <button (click)="toggleDrawer.emit()" mat-flat-button>
-        <img class="icon_main" src="assets/icons/menu.png">
-      </button>
-    </div>
+      <div class="middle_line_right_sidebar">
+        <button (click)="toggleDrawer.emit()" mat-flat-button>
+          <img class="icon_main" src="assets/icons/menu.png">
+        </button>
+      </div>
   </section>
   <section class="bottom_line">
     <div class="bottom_line_categories_block">
-      <div class="bottom_line_categories">
+      <div class="bottom_line_categories" routerLink="shop-all">
         SHOP ALL
       </div>
-      <div class="bottom_line_categories">
+      <div class="bottom_line_categories" routerLink="dogs">
         DOGS
       </div>
       <div class="bottom_line_categories">

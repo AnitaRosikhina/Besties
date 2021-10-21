@@ -8,6 +8,9 @@ const routes: Routes = [
   {
     path: 'shop-all', loadChildren: () => import('./pages/shop-all-page/shop-all-page.module').then(m => m.ShopAllPageModule)
   },
+  {
+    path: 'dogs', loadChildren: () => import('./pages/dogs-page/dogs-page.module').then(m => m.DogsPageModule)
+  },
 
   {path: '**', redirectTo: 'home', pathMatch: 'full'}
 ];
