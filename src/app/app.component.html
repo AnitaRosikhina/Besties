@@ -4,7 +4,7 @@
       <img class="icon_logIn" src="assets/icons/account.svg">
       <span class="title_logIn">Log in</span>
     </div>
-    <button class="close" (click)="drawer.close()" mat-flat-button>X</button>
+    <button class="close" mat-flat-button (click)="drawer.close()">X</button>
     <div class="categories">
       <div class="categories_title">SHOP ALL</div>
       <div class="categories_title">DOGS</div>
@@ -18,7 +18,7 @@
   </mat-drawer>
   <mat-drawer-content>
     <app-header (toggleDrawer)="drawer.toggle()"></app-header>
-<!--    router-outlet-->
+    <router-outlet></router-outlet>
 <!--    app-footer-->
   </mat-drawer-content>
 </mat-drawer-container>
