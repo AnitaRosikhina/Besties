@@ -11,6 +11,9 @@ const routes: Routes = [
   {
     path: 'dogs', loadChildren: () => import('./pages/dogs-page/dogs-page.module').then(m => m.DogsPageModule)
   },
+  {
+    path: 'cats', loadChildren: () => import('./pages/cats-page/cats-page.module').then(m => m.CatsPageModule)
+  },
 
   {path: '**', redirectTo: 'home', pathMatch: 'full'}
 ];
