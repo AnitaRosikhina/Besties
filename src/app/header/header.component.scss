@@ -130,6 +130,10 @@
     }
   }
 
+  .active {
+    color: $fourthColor
+  }
+
   .bottom_line_categories:hover {
     color: $fourthColor;
   }
@@ -190,3 +194,5 @@
     }
   }
 }
+
+
