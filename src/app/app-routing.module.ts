@@ -20,6 +20,12 @@ const routes: Routes = [
   {
     path: 'fish-and-aquatics', loadChildren: () => import('./pages/fish-and-aquatics-page/fish-and-aquatics-page.module').then(m => m.FishAndAquaticsPageModule)
   },
+  {
+    path: 'small-animals', loadChildren: () => import('./pages/small-animals-page/small-animals-page.module').then(m => m.SmallAnimalsPageModule)
+  },
+  {
+    path: 'reptiles', loadChildren: () => import('./pages/reptiles-page/reptiles-page.module').then(m => m.ReptilesPageModule)
+  },
   {path: '**', redirectTo: 'home', pathMatch: 'full'}
 ];
 
