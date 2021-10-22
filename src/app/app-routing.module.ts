@@ -17,7 +17,9 @@ const routes: Routes = [
   {
     path: 'birds', loadChildren: () => import('./pages/birds-page/birds-page.module').then(m => m.BirdsPageModule)
   },
-
+  {
+    path: 'fish-and-aquatics', loadChildren: () => import('./pages/fish-and-aquatics-page/fish-and-aquatics-page.module').then(m => m.FishAndAquaticsPageModule)
+  },
   {path: '**', redirectTo: 'home', pathMatch: 'full'}
 ];
 
