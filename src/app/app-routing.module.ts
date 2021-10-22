@@ -26,6 +26,9 @@ const routes: Routes = [
   {
     path: 'reptiles', loadChildren: () => import('./pages/reptiles-page/reptiles-page.module').then(m => m.ReptilesPageModule)
   },
+  {
+    path: 'contact', loadChildren: () => import('./pages/contact-page/contact-page.module').then(m => m.ContactPageModule)
+  },
   {path: '**', redirectTo: 'home', pathMatch: 'full'}
 ];
 
