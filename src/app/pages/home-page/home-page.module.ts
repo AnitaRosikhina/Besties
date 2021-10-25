@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {HomePageComponent} from "./home-page.component";
 import {HomePageRoutingModule} from "./home-page-routing.module";
+import {IvyCarouselModule} from "angular-responsive-carousel";
 
 
 
@@ -9,7 +10,8 @@ import {HomePageRoutingModule} from "./home-page-routing.module";
   declarations: [HomePageComponent],
   imports: [
     CommonModule,
-    HomePageRoutingModule
+    HomePageRoutingModule,
+    IvyCarouselModule
   ]
 })
 export class HomePageModule { }
