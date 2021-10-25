@@ -1,0 +1,90 @@
+@import "../../assets/styles/variables.scss";
+
+footer {
+  background-color: $thirdColor;
+
+  .footer {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 50px 10px;
+    @media screen and (max-width: $media-md){
+      padding: 40px 7px;
+    }
+    @media screen and (max-width: $media-sm){
+      padding: 30px 20px;
+    }
+
+    &_column {
+      @media screen and (max-width: $media-md) {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      @media screen and (max-width: $media-sm) {
+        width: 100%;
+        align-items: flex-start;
+      }
+
+      &_title {
+        font-size: 19px;
+        color: $firstColor;
+        font-family: 'Poppins', sans-serif;
+        font-weight: bold;
+        margin: 0 0 30px;
+        @media screen and (max-width: $media-sm){
+          margin: 0 0 20px;
+        }
+      }
+
+      &_address {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        font-size: 16px;
+        color: $firstColor;
+        font-family: 'Catamaran', sans-serif;
+        min-height: 200px;
+        @media screen and (max-width: $media-sm){
+          min-height: 155px;
+        }
+
+        .address {
+          display: flex;
+          flex-direction: column;
+          margin: 0 0 55px;
+          :not(:last-child) {
+            margin: 0 0 14px;
+            @media screen and (max-width: $media-sm){
+              margin: 0 0 7px;
+            }
+          }
+          @media screen and (max-width: $media-md){
+            margin: 0 0 38px;
+          }
+          @media screen and (max-width: $media-sm){
+            margin: 0 0 30px;
+          }
+        }
+      }
+
+      &_list {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        font-size: 16px;
+        color: $firstColor;
+        font-family: 'Catamaran', sans-serif;
+        min-height: 200px;
+        @media screen and (max-width: $media-sm){
+          min-height: 155px;
+        }
+        :last-child {
+          margin: 0 0 30px;
+        }
+      }
+    }
+  }
+}
+
