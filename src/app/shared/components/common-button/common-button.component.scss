@@ -13,4 +13,8 @@
     color: $secondColor;
     background-color: $buttonHoverColor;
   }
+  @media screen and (max-width: $media-md){
+    width: 130px;
+    height: 35px;
+  }
 }

@@ -4,26 +4,26 @@
   position: relative;
 }
 
-.asd {
+.carousel_item {
   width: 420px;
-  height: 400px;
+  height: 350px;
   position: absolute;
-  background-color: $secondColor;
-  opacity: 0.7 ;
+  background-color: rgb(255 255 255 / 70%);
   z-index: 8;
   top: 15%;
   left: 8%;
+  padding: 50px 30px;
   @media screen and (max-width: $media-md) {
     height: 360px;
     width: 380px;
   }
   @media screen and (max-width: $media-sm) {
-    height: 340px;
-    width: 360px;
+    height: 206px;
+    width: 220px;
   }
 
   .title {
-    height: 210px;
+    height: 215px;
     font-size: 56px;
     color: $firstColor;
     font-family: "Poppins", sans-serif;
@@ -31,12 +31,165 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    padding: 30px;
+    margin: 0 0 40px;
+    letter-spacing: 5px;
     @media screen and (max-width: $media-md) {
       font-size: 45px;
     }
-    @media screen and (max-width: $media-md) {
-      font-size: 38px;
+    @media screen and (max-width: $media-sm) {
+      font-size: 30px;
+      height: 145px;
+      margin: 0 0 27px;
+      letter-spacing: 1px;
     }
   }
 }
+
+.grid {
+  display: grid;
+  row-gap: 50px;
+  column-gap: 45px;
+  height: 1390px;
+  width: auto;
+  padding: 50px 80px;
+  grid-template-rows: repeat(3, 1fr);
+  @media screen and (max-width: $media-md){
+    padding: 40px 30px;
+    row-gap: 25px;
+    column-gap: 30px;
+    height: 1230px;
+  }
+  @media screen and (max-width: $media-sm) {
+    grid-template-rows: repeat(7, 1fr);
+    padding: 30px 0 0;
+    height: 1500px;
+  }
+
+
+  &_item {
+    background-size: cover;
+    background-blend-mode: darken;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0 0 35px 20px;
+    letter-spacing: 2px;
+    @media screen and (max-width: $media-sm) {
+      padding: 0 0 20px 18px;
+    }
+
+    &_discount {
+      color: $secondColor;
+      font-size: 47px;
+      font-family: "Poppins", sans-serif;
+      font-weight: bold;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 33%;
+      @media screen and (max-width: $media-md){
+        font-size: 40px;
+      }
+      @media screen and (max-width: $media-sm){
+        font-size: 28px;
+        height: 43%;
+      }
+    }
+
+    &_title {
+      color: $secondColor;
+      font-size: 40px;
+      font-family: "Poppins", sans-serif;
+      font-weight: bold;
+      @media screen and (max-width: $media-md){
+        font-size: 30px;
+      }
+    }
+
+    &_description {
+      color: $secondColor;
+      font-size: 16px;
+      font-family: "Catamaran", sans-serif;
+      margin: 22px 0 7px;
+      @media screen and (max-width: $media-md){
+        margin: 15px 0 6px;
+      }
+      @media screen and (max-width: $media-md){
+        margin: 10px 0 4px;
+        font-size: 12px;
+      }
+    }
+  }
+
+  &_discount {
+    grid-column: 1/4;
+    background: rgb(0, 0, 0, .60) url("../../../assets/images/image-category/discount.webp");
+    background-size: cover;
+    background-position: center;
+    @media screen and (max-width: $media-sm) {
+      grid-column: 1/12 ;
+    }
+  }
+
+  &_dog {
+    grid-column: 4/10;
+    background: rgb(0, 0, 0, .15) url("../../../assets/images/image-category/dog.jpg");
+    background-size: cover;
+    background-position: center;
+    @media screen and (max-width: $media-sm) {
+      grid-column: 1/12 ;
+    }
+  }
+
+  &_cat {
+    grid-column: 10/12;
+    background: rgb(0, 0, 0, .15) url("../../../assets/images/image-category/cat.webp");
+    background-size: cover;
+    background-position: center;
+    @media screen and (max-width: $media-sm) {
+      grid-column: 1/12 ;
+    }
+  }
+
+  &_bird {
+    grid-column: 1/5;
+    background: rgb(0, 0, 0, .15) url("../../../assets/images/image-category/bird.webp");
+    background-size: cover;
+    background-position: revert;
+    @media screen and (max-width: $media-sm) {
+      grid-column: 1/12 ;
+    }
+  }
+
+  &_fish {
+    grid-column: 5/12;
+    background: rgb(0, 0, 0, .15) url("../../../assets/images/image-category/fish.webp");
+    background-size: cover;
+    background-position: center;
+    @media screen and (max-width: $media-sm) {
+      grid-column: 1/12 ;
+    }
+  }
+
+  &_small_animals {
+    grid-column: 1/8;
+    background: rgb(0, 0, 0, .15) url("../../../assets/images/image-category/small-animal.webp");
+    background-size: cover;
+    background-position: center;
+    @media screen and (max-width: $media-sm) {
+      grid-column: 1/12 ;
+    }
+  }
+
+  &_reptiles {
+    grid-column: 8/12;
+    background: rgb(0, 0, 0, .15) url("../../../assets/images/image-category/reptile.webp");
+    background-size: cover;
+    background-position: revert;
+    @media screen and (max-width: $media-sm) {
+      grid-column: 1/12 ;
+    }
+  }
+}
+
+

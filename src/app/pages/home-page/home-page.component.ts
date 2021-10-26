@@ -8,11 +8,10 @@ import { Component, OnInit } from '@angular/core';
 export class HomePageComponent implements OnInit {
 
   images = [
-    {path: "assets/images/slider_1.webp"},
-    {path: "assets/images/slider_2.webp"},
-    {path: "assets/images/slider_3.webp"},
+    {path: "assets/images/slider/slider_1.webp"},
+    {path: "assets/images/slider/slider_2.webp"},
+    {path: "assets/images/slider/slider_3.webp"},
   ]
-  
   constructor() { }
 
   ngOnInit(): void {

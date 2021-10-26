@@ -6,15 +6,111 @@
             [loop]="true"
             [autoplayInterval]="4000"
             [cellsToShow]="1"
+            [objectFit]="'cover'"
             style="z-index: 1;"
   >
   </carousel>
-  <div class="asd">
+  <div class="carousel_item">
     <div class="title">
       <span>Welcome</span>
       <span>to Our Pet</span>
       <span>Supply Shop</span>
     </div>
+    <app-common-button [classes]="['button_shop']" text="Start Shopping" routerLink="/shop-all"></app-common-button>
+  </div>
+</section>
+<section class="grid">
+  <div class="grid_item grid_discount">
+    <div class="grid_item_discount">
+      <span>DEAL</span>
+      <span>OF THE</span>
+      <span>WEEK</span>
+    </div>
+    <div class="grid_item_description">
+      50% OFF
+      <br>on dog treats</div>
+    <app-common-button
+      [classes]="['button_shop']"
+      text="Shop Now"
+      routerLink="/shop-all">
+    </app-common-button>
+  </div>
+  <div class="grid_item grid_dog">
+      <div class="grid_item_title">
+        Dogs
+      </div>
+      <div class="grid_item_description">
+        Any treats for your dog
+      </div>
+      <app-common-button
+        [classes]="['button_shop']"
+        text="Shop Now"
+        routerLink="/dogs">
+      </app-common-button>
+  </div>
+  <div class="grid_item grid_cat">
+    <div class="grid_item_title">Cats</div>
+    <div class="grid_item_description">
+      Well-fed cat
+      <br>happy cat
+    </div>
+    <app-common-button
+      [classes]="['button_shop']"
+      text="Shop Now"
+      routerLink="/cats">
+    </app-common-button>
+  </div>
+  <div class="grid_item grid_bird">
+    <div class="grid_item_title">
+      Birds
+    </div>
+    <div class="grid_item_description">
+      Your bird will feel free
+    </div>
+    <app-common-button
+      [classes]="['button_shop']"
+      text="Shop Now"
+      routerLink="/birds">
+    </app-common-button>
+  </div>
+  <div class="grid_item grid_fish">
+    <div class="grid_item_title">
+      Fish
+    </div>
+    <div class="grid_item_description">
+      It's easier to buy than to swim
+    </div>
+    <app-common-button
+      [classes]="['button_shop']"
+      text="Shop Now"
+      routerLink="/fish-and-aquatics">
+    </app-common-button>
+  </div>
+  <div class="grid_item grid_small_animals">
+    <div class="grid_item_title">
+      Small Animals
+    </div>
+    <div class="grid_item_description">
+      Cozy place for your pets
+    </div>
+    <app-common-button
+      [classes]="['button_shop']"
+      text="Shop Now"
+      routerLink="small-animals">
+    </app-common-button>
+  </div>
+  <div class="grid_item grid_reptiles">
+    <div class="grid_item_title">
+      Reptiles
+    </div>
+    <div class="grid_item_description">
+      Unique things for unique animals
+    </div>
+    <app-common-button
+      [classes]="['button_shop']"
+      text="Shop Now"
+      routerLink="reptiles">
+    </app-common-button>
   </div>
 </section>
 
