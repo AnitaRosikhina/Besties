@@ -1,0 +1,36 @@
+@import "src/assets/styles/variables";
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 400px;
+  height: 350px;
+
+  .title {
+    font-family: "Poppins", sans-serif;
+    color: $thirdColor;
+    text-align: center;
+    font-weight: bold;
+    font-size: 35px;
+  }
+
+  .button_login {
+    border: none;
+    background-color: $thirdColor;
+    color: $secondColor;
+    width: 80px;
+    height: 40px;
+    font-family: "Poppins", sans-serif;
+  }
+
+  .button_cancel {
+    border: none;
+    background-color: $fourthColor;
+    color: $secondColor;
+    width: 80px;
+    height: 40px;
+    font-family: "Poppins", sans-serif;
+  }
+}
+

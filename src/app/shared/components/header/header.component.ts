@@ -1,4 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {MatDialog, MatDialogModule} from '@angular/material/dialog';
+import {LoginModalComponent} from "../login-modal/login-modal.component";
 
 @Component({
   selector: 'app-header',
@@ -9,9 +11,16 @@ export class HeaderComponent implements OnInit {
 
   @Output() toggleDrawer = new EventEmitter<void>();
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
 
+  openDialog() {
+    const dialogRef = this.dialog.open(LoginModalComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
 }

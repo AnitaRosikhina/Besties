@@ -8,13 +8,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatButtonModule} from "@angular/material/button";
 import {FooterComponent} from "./shared/components/footer/footer.component";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {LoginModalComponent} from "./shared/components/login-modal/login-modal.component";
+import {MatDialogModule} from "@angular/material/dialog";
+import {MatInputModule} from "@angular/material/input";
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    LoginModalComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +26,10 @@ import {FormsModule} from "@angular/forms";
     BrowserAnimationsModule,
     MatSidenavModule,
     MatButtonModule,
-    FormsModule
+    FormsModule,
+    MatDialogModule,
+    MatInputModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
