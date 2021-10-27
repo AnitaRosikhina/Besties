@@ -1,0 +1,39 @@
+<div class="card">
+  <div class="card_image">
+    <img [src]=product.imageUrl>
+    <div class="quite_view">
+      Quite view
+    </div>
+  </div>
+  <div class="card_description">
+    <div class="card_description_title">
+      {{ product.title}}
+    </div>
+    <hr>
+    <div class="card_description_price">
+      {{ product.price | currency:'USD':true}}
+    </div>
+  </div>
+  <div class="card_footer">
+    <div class="count">
+      <button
+        class="count_button"
+        (click)="changeCount(product, false)"
+      >
+        <img src="assets/icons/minus.png">
+      </button>
+      <span>{{ product.count }}</span>
+      <button
+        class="count_button"
+        (click)="changeCount(product, true)"
+      >
+        <img src="assets/icons/plus.svg">
+      </button>
+    </div>
+    <app-common-button
+      text="Add to Card"
+      [classes]="['button_add']"
+    >
+    </app-common-button>
+  </div>
+</div>

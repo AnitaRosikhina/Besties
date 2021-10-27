@@ -114,6 +114,12 @@
   </div>
 </section>
 <section>
+  <div class="title_shop">Our Pets' Choice</div>
+  <div class="cards">
+    <app-product-card *ngFor="let product of products" [product]="product"></app-product-card>
+  </div>
+</section>
+<section>
   <div class="section_brands">
     <div class="block_title">
       Best Brands at Lowest Prices
@@ -137,4 +143,3 @@
     </div>
   </div>
 </section>
-
