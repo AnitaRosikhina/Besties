@@ -1,6 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {MatDialogRef} from "@angular/material/dialog";
+import {MatDialog, MatDialogRef} from "@angular/material/dialog";
+import {RegistrationModalComponent} from "../registration-modal/registration-modal.component";
 
 @Component({
   selector: 'app-login-modal',
@@ -11,7 +12,8 @@ import {MatDialogRef} from "@angular/material/dialog";
 export class LoginModalComponent implements OnInit {
   form: FormGroup;
 
-  constructor(private fb: FormBuilder,
+  constructor(private dialog: MatDialog,
+              private fb: FormBuilder,
               private dialogRef: MatDialogRef<LoginModalComponent>) { }
 
   ngOnInit(): void {
@@ -24,5 +26,14 @@ export class LoginModalComponent implements OnInit {
   submit(): void {
     console.log(this.form.value);
     this.dialogRef.close();
+  }
+
+  openDialog() {
+    const dialogRef = this.dialog.open(RegistrationModalComponent);
+    this.dialogRef.close();
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 }

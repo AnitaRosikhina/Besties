@@ -12,13 +12,15 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {LoginModalComponent} from "./shared/components/login-modal/login-modal.component";
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatInputModule} from "@angular/material/input";
+import {RegistrationModalComponent} from "./shared/components/registration-modal/registration-modal.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    LoginModalComponent
+    LoginModalComponent,
+    RegistrationModalComponent,
   ],
   imports: [
     BrowserModule,

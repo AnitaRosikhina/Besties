@@ -22,7 +22,8 @@
         Password is <strong>required</strong>
       </mat-error>
   </mat-form-field>
-  <div>
+  <div (click)="openDialog()" class="register">You haven't registered yet?</div>
+  <div class="button_group">
     <button type="button" class="button_cancel" [mat-dialog-close]>Cancel</button>
     <button type="submit" class="button_login">Login</button>
   </div>

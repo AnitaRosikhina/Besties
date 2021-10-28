@@ -2,7 +2,7 @@
   <mat-drawer #drawer class="example-sidenav" mode="over" position="end">
     <div class="block_logIn">
       <img class="icon_logIn" src="assets/icons/account.svg">
-      <span class="title_logIn">Log in</span>
+      <span class="title_logIn" (click)="openDialog()">Log in</span>
     </div>
     <button class="close" mat-flat-button (click)="drawer.close()">X</button>
     <div class="categories">
