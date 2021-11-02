@@ -1,5 +1,7 @@
 import {Component, OnInit, ChangeDetectionStrategy, Input} from '@angular/core';
 import {IProductRequest, IProductResponse} from "../../models/product";
+import {MatDialog} from "@angular/material/dialog";
+import {ProductModalComponent} from "../product-modal/product-modal.component";
 
 @Component({
   selector: 'app-product-card',
@@ -9,7 +11,7 @@ import {IProductRequest, IProductResponse} from "../../models/product";
 })
 export class ProductCardComponent implements OnInit {
   @Input() product: IProductRequest
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
@@ -21,5 +23,17 @@ export class ProductCardComponent implements OnInit {
     else if(!status && product.count > 1) {
       --product.count
     }
+  }
+
+  openDialog() {
+    const dialogRef = this.dialog.open(ProductModalComponent, {
+      data: {
+        product: this.product
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 }

@@ -1,0 +1,27 @@
+<div class="close" [mat-dialog-close]>X</div>
+<div class="modal">
+  <div>
+    <img [src]="data.product.imageUrl">
+  </div>
+  <div class="block_description">
+    <div>
+      <div class="description">
+        <div class="title">{{ data.product.title }}</div>
+        <div class="price">{{ data.product.price | currency:'USD' }}</div>
+      </div>
+      <div class="block_quantity">
+        <span class="title_quantity">Quantity</span>
+        <div class="count">
+          <div>{{ count }}</div>
+          <div class="switch">
+            <div (click)="changeCount(product,true)">∧</div>
+            <div (click)="changeCount(product,false)">∨</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <app-common-button text="Add to Card" [classes]="['button_add_modal']"></app-common-button>
+      </div>
+    </div>
+  </div>
+</div>

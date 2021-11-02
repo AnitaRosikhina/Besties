@@ -1,0 +1,67 @@
+@import "src/assets/styles/variables";
+
+.close {
+  text-align: end;
+}
+
+.modal {
+  display: flex;
+  justify-content: space-around;
+  width: 750px;
+
+  img {
+    width: 100%;
+  }
+
+  .block_description {
+    width: 50%;
+
+    .description {
+      display: flex;
+      flex-direction: column;
+
+      .title {
+        font-size: 19px;
+        font-family: "Poppins", sans-serif;
+        font-weight: bold;
+        color: $buttonHoverColor;
+        margin: 0 0 20px;
+      }
+
+      .price {
+        font-family: "Catamaran", sans-serif;
+        font-size: 16px;
+        color: $fifthColor;
+      }
+    }
+  }
+
+  .block_quantity {
+    margin: 0 0 30px;
+
+    .title_quantity {
+      font-family: "Catamaran", sans-serif;
+      font-size: 14px;
+      color: $firstColor;
+    }
+
+    .count {
+      width: 76px;
+      height: 40px;
+      border: 1px solid #c9c9c9;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 6px 0 10px;
+      margin: 10px 0 0;
+      &:hover .switch {
+        display: block;
+      }
+
+      .switch {
+        display: none;
+        transition: 1s;
+      }
+    }
+  }
+}
