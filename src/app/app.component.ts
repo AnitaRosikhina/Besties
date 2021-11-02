@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
   @ViewChild('drawer') drawer: MatDrawer
 
   constructor(private router: Router,
-              private dialog: MatDialog,) {}
+              private dialog: MatDialog) {}
 
   ngOnInit() {
     this.router.events.subscribe(() => {
