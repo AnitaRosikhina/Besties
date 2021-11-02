@@ -2,12 +2,18 @@
 
 .close {
   text-align: end;
+  @media screen and (max-width: $media-md) {
+    margin: 0 0 20px;
+  }
 }
 
 .modal {
   display: flex;
   justify-content: space-around;
-  width: 750px;
+  width: 50vw;
+  @media screen and (max-width: $media-md) {
+    flex-wrap: wrap;
+  }
 
   img {
     width: 100%;
@@ -15,6 +21,9 @@
 
   .block_description {
     width: 50%;
+    @media screen and (max-width: $media-md) {
+      margin: 20px 0 0;
+    }
 
     .description {
       display: flex;
@@ -25,19 +34,18 @@
         font-family: "Poppins", sans-serif;
         font-weight: bold;
         color: $buttonHoverColor;
-        margin: 0 0 20px;
       }
 
       .price {
         font-family: "Catamaran", sans-serif;
         font-size: 16px;
         color: $fifthColor;
+        margin: 10px 0 20px;
       }
     }
   }
 
   .block_quantity {
-    margin: 0 0 30px;
 
     .title_quantity {
       font-family: "Catamaran", sans-serif;
@@ -63,5 +71,11 @@
         transition: 1s;
       }
     }
+  }
+
+  .details {
+    font-size: 14px;
+    font-family: "Catamaran", sans-serif;
+    text-decoration: underline;
   }
 }
