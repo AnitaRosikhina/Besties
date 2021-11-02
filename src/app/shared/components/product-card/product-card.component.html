@@ -22,7 +22,7 @@
       >
         <img src="assets/icons/minus.png">
       </button>
-      <span>{{ product.count }}</span>
+      <span>{{ count }}</span>
       <button
         class="count_button"
         (click)="changeCount(product, true)"
@@ -33,7 +33,6 @@
     <app-common-button
       text="Add to Card"
       [classes]="['button_add']"
-    >
-    </app-common-button>
+    ></app-common-button>
   </div>
 </div>
