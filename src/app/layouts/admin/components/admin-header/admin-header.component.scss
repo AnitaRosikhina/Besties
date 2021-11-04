@@ -1,0 +1,56 @@
+@import "src/assets/styles/variables";
+
+.header {
+  padding: 20px;
+  border-bottom: 2px solid $thirdColor;
+  display: flex;
+  justify-content: space-between;
+
+  &_title {
+    display: flex;
+    align-items: center;
+
+    .icon_paw {
+      width: 50px;
+      margin: 0 7px 0;
+    }
+
+    .title {
+      font-size: 25px;
+      color: $thirdColor;
+      font-family: "Poppins", sans-serif;
+      font-weight: bold;
+    }
+
+    .description {
+      font-size: 18px;
+      font-family: "Catamaran", sans-serif;
+    }
+  }
+
+  .button_group {
+    display: flex;
+
+    .button_admin {
+      border: 2px solid $fourthColor;
+      height: 45px;
+      width: 140px;
+      font-family: "Poppins", sans-serif;
+      color: $fourthColor;
+      font-weight: bold;
+      background-color: $secondColor;
+      letter-spacing: 2px;
+      &:focus {
+        outline: none;
+      }
+    }
+
+    .active {
+      border: none;
+      background-color: $fourthColor;
+      color: $secondColor;
+    }
+
+
+  }
+}
