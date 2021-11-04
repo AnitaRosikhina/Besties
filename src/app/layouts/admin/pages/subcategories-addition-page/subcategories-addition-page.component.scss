@@ -1,0 +1,44 @@
+@import "src/assets/styles/variables";
+
+table {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.block_addition {
+  border: 3px solid $fourthColor;
+  padding: 20px;
+  width: 95%;
+  margin: 20px auto;
+
+  .add {
+    font-family: "Poppins", sans-serif;
+    color: $secondColor;
+    background-color: $thirdColor;
+    border: none;
+    width: 80px;
+    height: 45px;
+    letter-spacing: 1px;
+    font-size: 18px;
+    &:hover {
+      color: $thirdColor;
+      background-color: $secondColor;
+      border: 3px solid $thirdColor;
+      font-weight: bold;
+    }
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.content {
+  padding: 30px;
+}
