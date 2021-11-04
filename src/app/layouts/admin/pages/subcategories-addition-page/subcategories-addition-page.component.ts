@@ -25,7 +25,7 @@ export class SubcategoriesAdditionPageComponent implements OnInit {
     {name: 'Neon',category: 'dogs'},
   ])
 
-  categories: string[] = ['Dogs', 'Cats'];
+  categories: string[] = ['Dogs', 'Cats', 'Birds', 'Fish', 'Small Animals', 'Reptiles'];
 
   constructor(private fb: FormBuilder) {
   }
