@@ -18,6 +18,10 @@ export class ProductService {
         return this.productModel.findById(id)
     }
 
+    async getByCategoryAndSubCategory(category: string, subcategory: string): Promise<Product[]> {
+        return this.productModel.find({category, subcategory}).exec()
+    }
+
     async create(productDto: CreateProductDto): Promise<Product> {
         const newProduct = new this.productModel(productDto)
         return newProduct.save()

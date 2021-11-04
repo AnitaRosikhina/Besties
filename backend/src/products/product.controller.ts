@@ -19,6 +19,14 @@ export class ProductController {
         return this.productService.getById(id)
     }
 
+    @Get()
+    getByCategoryAndSubCategory(
+        @Param('category') category: string,
+        @Param('subcategory') subcategory: string
+    ): Promise<Product[]> {
+        return this.productService.getByCategoryAndSubCategory(category, subcategory)
+    }
+
     @Post()
     @HttpCode(HttpStatus.CREATED)
     @Header('Cache-Control', 'none')
