@@ -1,5 +1,5 @@
 import {Component, OnInit, ChangeDetectionStrategy, Input} from '@angular/core';
-import {IProductRequest} from "../../models/product";
+import {IProductRequest} from "../../models/product.model";
 import {MatDialog} from "@angular/material/dialog";
 import {ProductModalComponent} from "../product-modal/product-modal.component";
 

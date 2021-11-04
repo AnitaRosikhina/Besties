@@ -1,6 +1,6 @@
 import {Component, OnInit, ChangeDetectionStrategy, Input, Inject} from '@angular/core';
 import {MAT_DIALOG_DATA} from "@angular/material/dialog";
-import {IProductRequest} from "../../models/product";
+import {IProductRequest} from "../../models/product.model";
 
 
 interface DialogData {
