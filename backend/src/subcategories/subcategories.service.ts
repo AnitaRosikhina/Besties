@@ -24,6 +24,7 @@ export class SubcategoriesService {
     }
 
     async remove(id: string): Promise<Subcategory> {
+        console.log('id remove async', id);
         return this.subcategoryModel.findByIdAndRemove(id)
     }
 

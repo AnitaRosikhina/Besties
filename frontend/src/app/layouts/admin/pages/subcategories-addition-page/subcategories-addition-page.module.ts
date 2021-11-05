@@ -9,6 +9,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatSelectModule} from "@angular/material/select";
 import {SubcategoryService} from "./services/subcategory.service";
 import {HttpClientModule} from "@angular/common/http";
+import {CommonButtonModule} from "../../../../shared/components/common-button/common-button.module";
 
 @NgModule({
   declarations: [SubcategoriesAdditionPageComponent],
@@ -20,7 +21,8 @@ import {HttpClientModule} from "@angular/common/http";
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
-    MatSelectModule
+    MatSelectModule,
+    CommonButtonModule
   ],
   providers: [SubcategoryService]
 })

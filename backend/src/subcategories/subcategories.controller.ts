@@ -26,7 +26,7 @@ export class SubcategoriesController {
         return this.subcategoryService.create(createSubcategoryDto)
     }
 
-    @Delete()
+    @Delete(':id')
     remove(@Param('id') id: string) {
         return this.subcategoryService.remove(id)
     }

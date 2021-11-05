@@ -15,4 +15,8 @@ export class SubcategoryService {
   create(body: ISubcategory): Observable<ISubcategory> {
     return this.http.post<ISubcategory>('http://localhost:3000/subcategory', body)
   }
+
+  delete(id: string): Observable<ISubcategory> {
+    return this.http.delete<ISubcategory>(`http://localhost:3000/subcategory/${id}`)
+  }
 }
