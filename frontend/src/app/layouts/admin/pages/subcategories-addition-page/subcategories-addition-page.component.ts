@@ -77,5 +77,6 @@ export class SubcategoriesAdditionPageComponent implements OnInit {
       this.getAll()
       this.editingId = null
     })
+    this.resetForm()
   }
 }

@@ -39,7 +39,7 @@ export class ProductController {
         return this.productService.remove(id)
     }
 
-    @Put('id')
+    @Put(':id')
     update(@Body() updateProductDto, @Param('id') id: string): Promise<Product> {
         return this.productService.update(id, updateProductDto)
     }

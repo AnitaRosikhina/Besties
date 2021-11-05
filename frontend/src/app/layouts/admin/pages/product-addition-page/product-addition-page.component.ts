@@ -106,7 +106,8 @@ export class ProductAdditionPageComponent  implements OnInit {
     }
   }
 
-  edit(element: IProduct & {_id: string}): void {
+  edit(event, element: IProduct & {_id: string}): void {
+    event.stopImmediatePropagation()
     this.form.setValue({
       name: element.name,
       category: element.category,
@@ -115,6 +116,14 @@ export class ProductAdditionPageComponent  implements OnInit {
       description: element.description,
       imageUrl: element.imageUrl,
     })
-    // this.editingId = element._id
+    this.editingId = element._id
+  }
+
+  update(): void {
+    this.productService.edit(this.editingId, this.form.value).subscribe(() => {
+      this.getAll()
+      this.editingId = null
+    })
+    this.resetForm()
   }
 }

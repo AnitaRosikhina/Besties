@@ -37,6 +37,20 @@ table {
       outline: none;
     }
   }
+
+  .edit {
+    font-family: "Poppins", sans-serif;
+    color: $fourthColor;
+    background-color: $secondColor;
+    border: 3px solid $fourthColor;
+    font-weight: bold;
+    height: 45px;
+    letter-spacing: 1px;
+    font-size: 18px;
+    &:focus {
+      outline: none;
+    }
+  }
 }
 
 .content {

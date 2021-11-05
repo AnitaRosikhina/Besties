@@ -48,8 +48,18 @@
       type="submit"
       class="add"
       [disabled]="form.invalid"
+      *ngIf="!editingId"
     >
       ADD
+    </button>
+    <button
+      type="button"
+      class="edit"
+      (click)="update()"
+      [disabled]="form.invalid"
+      *ngIf="editingId"
+    >
+      Update
     </button>
   </form>
 </div>
@@ -64,7 +74,6 @@
     [dataSource]="dataSource"
     multiTemplateDataRows
   >
-
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef> Name</th>
       <td mat-cell *matCellDef="let element"> {{element.name}} </td>
@@ -90,7 +99,7 @@
     <ng-container matColumnDef="editButton">
       <th mat-header-cell *matHeaderCellDef> Edit</th>
       <td mat-cell *matCellDef="let element">
-        <app-common-button (click)="edit(element)" text="Edit" [classes]="['button_admin_edit']"></app-common-button>
+        <app-common-button (click)="edit($event, element)" text="Edit" [classes]="['button_admin_edit']"></app-common-button>
       </td>
     </ng-container>
 
