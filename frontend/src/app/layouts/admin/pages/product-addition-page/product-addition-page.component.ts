@@ -6,6 +6,7 @@ import {SubcategoryService} from "../subcategories-addition-page/services/subcat
 import {Observable} from "rxjs";
 import {map} from "rxjs/operators";
 import {ProductService} from "./services/product.service";
+import {DecimalPipe, TitleCasePipe} from "@angular/common";
 
 export interface IProduct {
   category: string
@@ -40,6 +41,8 @@ export class ProductAdditionPageComponent  implements OnInit {
 
   constructor(private fb: FormBuilder,
               private cdr: ChangeDetectorRef,
+              private titleCasePipe: TitleCasePipe,
+              private decimalPipe: DecimalPipe,
               private subcategoryService: SubcategoryService,
               private productService: ProductService) {}
 
@@ -85,6 +88,7 @@ export class ProductAdditionPageComponent  implements OnInit {
   }
 
   submit(): void {
+    this.formatData()
     this.productService.create(this.form.value).subscribe(() => {
       this.getAll()
     })
@@ -120,10 +124,16 @@ export class ProductAdditionPageComponent  implements OnInit {
   }
 
   update(): void {
+    this.formatData()
     this.productService.edit(this.editingId, this.form.value).subscribe(() => {
       this.getAll()
       this.editingId = null
     })
     this.resetForm()
+  }
+
+  formatData(): void {
+    this.form.get('name').setValue(this.titleCasePipe.transform(this.form.value.name).trim())
+    this.form.get('price').setValue(this.decimalPipe.transform(this.form.value.price, '1.2-2'))
   }
 }

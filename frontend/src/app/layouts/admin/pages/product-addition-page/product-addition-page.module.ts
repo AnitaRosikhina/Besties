@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {CommonModule, DecimalPipe, TitleCasePipe} from '@angular/common';
 
 import { ProductAdditionPageRoutingModule } from './product-addition-page-routing.module';
 import {ProductAdditionPageComponent} from "./product-addition-page.component";
@@ -27,6 +27,6 @@ import {ProductService} from "./services/product.service";
     HttpClientModule,
     MatButtonModule
   ],
-  providers: [SubcategoryService, ProductService]
+  providers: [SubcategoryService, ProductService, TitleCasePipe, DecimalPipe]
 })
 export class ProductAdditionPageModule { }

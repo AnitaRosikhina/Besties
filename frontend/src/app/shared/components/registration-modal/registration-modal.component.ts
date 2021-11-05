@@ -22,7 +22,6 @@ export class RegistrationModalComponent implements OnInit {
   }
 
   submit(): void {
-    console.log(this.form.value);
     this.dialogRef.close();
   }
 }

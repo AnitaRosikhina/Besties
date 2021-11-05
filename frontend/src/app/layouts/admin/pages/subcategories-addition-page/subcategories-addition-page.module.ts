@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {CommonModule, TitleCasePipe} from '@angular/common';
 
 import { SubcategoriesAdditionPageRoutingModule } from './subcategories-addition-page-routing.module';
 import {SubcategoriesAdditionPageComponent} from "./subcategories-addition-page.component";
@@ -24,6 +24,6 @@ import {CommonButtonModule} from "../../../../shared/components/common-button/co
     MatSelectModule,
     CommonButtonModule
   ],
-  providers: [SubcategoryService]
+  providers: [SubcategoryService, TitleCasePipe]
 })
 export class SubcategoriesAdditionPageModule {}

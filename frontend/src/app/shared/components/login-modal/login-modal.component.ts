@@ -24,16 +24,12 @@ export class LoginModalComponent implements OnInit {
   }
 
   submit(): void {
-    console.log(this.form.value);
     this.dialogRef.close();
   }
 
   openDialog() {
     const dialogRef = this.dialog.open(RegistrationModalComponent);
     this.dialogRef.close();
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
+    dialogRef.afterClosed().subscribe();
   }
 }

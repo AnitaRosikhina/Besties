@@ -3,6 +3,7 @@ import {MatTableDataSource} from "@angular/material/table";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ISubcategory} from "../../../../shared/models/subcategory.model";
 import {SubcategoryService} from "./services/subcategory.service";
+import {TitleCasePipe} from "@angular/common";
 
 @Component({
   selector: 'app-subcategories-addition-page',
@@ -21,6 +22,7 @@ export class SubcategoriesAdditionPageComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
               private cdr: ChangeDetectorRef,
+              private titleCasePipe: TitleCasePipe,
               private subcategoryService: SubcategoryService) {}
 
   ngOnInit() {
@@ -40,11 +42,11 @@ export class SubcategoriesAdditionPageComponent implements OnInit {
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
-    // price filter
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
   submit(): void {
+    this.formatData()
     this.subcategoryService.create(this.form.value).subscribe(() => {
       this.getAll()
     })
@@ -73,10 +75,15 @@ export class SubcategoriesAdditionPageComponent implements OnInit {
   }
 
   update(): void {
+    this.formatData()
     this.subcategoryService.edit(this.editingId, this.form.value).subscribe(() => {
       this.getAll()
       this.editingId = null
     })
     this.resetForm()
+  }
+
+  formatData(): void {
+    this.form.get('name').setValue(this.titleCasePipe.transform(this.form.value.name).trim())
   }
 }

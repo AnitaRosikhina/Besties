@@ -9,7 +9,7 @@ export class Product {
     name: string
 
     @Prop({required: true})
-    price: number
+    price: string
 
     @Prop({required: true})
     imageUrl: string
