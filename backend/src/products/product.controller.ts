@@ -2,7 +2,6 @@ import {Body, Controller, Delete, Get, Header, HttpCode, HttpStatus, Param, Post
 import {ProductService} from "./product.service";
 import {Product} from "./schemas/product.schema";
 import {CreateProductDto} from "./dto/create-product.dto";
-import {Subcategory} from "../subcategories/schemas/subcategory.schema";
 
 @Controller('product')
 export class ProductController {
@@ -23,7 +22,7 @@ export class ProductController {
     @Get()
     getByCategoryAndSubCategory(
         @Param('category') category: string,
-        @Param('subcategory') subcategory: Subcategory
+        @Param('subcategory') subcategory: string
     ): Promise<Product[]> {
         return this.productService.getByCategoryAndSubCategory(category, subcategory)
     }
@@ -35,7 +34,7 @@ export class ProductController {
         return this.productService.create(createProductDto)
     }
 
-    @Delete()
+    @Delete(':id')
     remove(@Param('id') id: string) {
         return this.productService.remove(id)
     }

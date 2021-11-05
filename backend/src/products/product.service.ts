@@ -4,7 +4,6 @@ import {InjectModel} from "@nestjs/mongoose";
 import {Model} from "mongoose";
 import {CreateProductDto} from "./dto/create-product.dto";
 import {UpdateProductDto} from "./dto/update-product.dto";
-import {Subcategory} from "../subcategories/schemas/subcategory.schema";
 
 @Injectable()
 export class ProductService {
@@ -19,7 +18,7 @@ export class ProductService {
         return this.productModel.findById(id)
     }
 
-    async getByCategoryAndSubCategory(category: string, subcategory: Subcategory): Promise<Product[]> {
+    async getByCategoryAndSubCategory(category: string, subcategory: string): Promise<Product[]> {
         return this.productModel.find({category, subcategory}).exec()
     }
 

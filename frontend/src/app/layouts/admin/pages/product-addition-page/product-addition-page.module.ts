@@ -8,6 +8,10 @@ import {CommonButtonModule} from "../../../../shared/components/common-button/co
 import {MatInputModule} from "@angular/material/input";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatSelectModule} from "@angular/material/select";
+import {SubcategoryService} from "../subcategories-addition-page/services/subcategory.service";
+import {HttpClientModule} from "@angular/common/http";
+import {MatButtonModule} from "@angular/material/button";
+import {ProductService} from "./services/product.service";
 
 
 @NgModule({
@@ -19,7 +23,10 @@ import {MatSelectModule} from "@angular/material/select";
     CommonButtonModule,
     MatInputModule,
     ReactiveFormsModule,
-    MatSelectModule
-  ]
+    MatSelectModule,
+    HttpClientModule,
+    MatButtonModule
+  ],
+  providers: [SubcategoryService, ProductService]
 })
 export class ProductAdditionPageModule { }

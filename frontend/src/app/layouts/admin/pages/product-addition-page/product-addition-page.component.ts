@@ -1,7 +1,11 @@
-import {Component, ChangeDetectionStrategy, OnInit} from '@angular/core';
+import {Component, ChangeDetectionStrategy, OnInit, ChangeDetectorRef} from '@angular/core';
 import {MatTableDataSource} from "@angular/material/table";
 import {animate, state, style, transition, trigger} from "@angular/animations";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {SubcategoryService} from "../subcategories-addition-page/services/subcategory.service";
+import {Observable} from "rxjs";
+import {map} from "rxjs/operators";
+import {ProductService} from "./services/product.service";
 
 export interface IProduct {
   category: string
@@ -30,25 +34,87 @@ export class ProductAdditionPageComponent  implements OnInit {
   displayedColumns: string[] = ['name', 'category', 'subcategory', 'price', 'editButton', 'deleteButton'];
   form: FormGroup;
   categories: string[] = ['Dogs', 'Cats', 'Birds', 'Fish', 'Small Animals', 'Reptiles'];
+  subcategories$: Observable<string[]>
+  dataSource: MatTableDataSource<IProduct>
+  editingId: string
 
-  constructor(private fb: FormBuilder) {
-  }
+  constructor(private fb: FormBuilder,
+              private cdr: ChangeDetectorRef,
+              private subcategoryService: SubcategoryService,
+              private productService: ProductService) {}
 
   ngOnInit() {
     this.form = this.fb.group({
-      name: [null, Validators.required]
+      name: [null, Validators.required],
+      category: [null, Validators.required],
+      subcategory: [null, Validators.required],
+      price: [null, Validators.required],
+      description: [null, Validators.required],
+      imageUrl: [null, Validators.required],
     })
-  }
 
-  dataSource: MatTableDataSource<IProduct> = new MatTableDataSource([
-    {name: 'Hydrogen', category: 'dogs', subcategory: 'toys', price: '5', description: 'asdasdasdsasdasdadasdasd'  ,imageUrl: 'https://static.wixstatic.com/media/82fcd3_6e02cbc1d0aa495d86c6058a64a07fb8~mv2_d_1920_1920_s_2.jpg/v1/fill/w_125,h_125,al_c,q_85,usm_0.66_1.00_0.01/82fcd3_6e02cbc1d0aa495d86c6058a64a07fb8~mv2_d_1920_1920_s_2.webp'},
-    {name: 'Hydrogen', category: 'cats', subcategory: 'toys', price: '5', description: 'asdasdasdsasdasdadasdasd'  ,imageUrl: 'https://static.wixstatic.com/media/82fcd3_6e02cbc1d0aa495d86c6058a64a07fb8~mv2_d_1920_1920_s_2.jpg/v1/fill/w_125,h_125,al_c,q_85,usm_0.66_1.00_0.01/82fcd3_6e02cbc1d0aa495d86c6058a64a07fb8~mv2_d_1920_1920_s_2.webp'},
-    {name: 'Hydrogen', category: 'dogs', subcategory: 'toys', price: '5', description: 'asdasdasdsasdasdadasdasd'  ,imageUrl: 'https://static.wixstatic.com/media/82fcd3_6e02cbc1d0aa495d86c6058a64a07fb8~mv2_d_1920_1920_s_2.jpg/v1/fill/w_125,h_125,al_c,q_85,usm_0.66_1.00_0.01/82fcd3_6e02cbc1d0aa495d86c6058a64a07fb8~mv2_d_1920_1920_s_2.webp'},
-    {name: 'Hydrogen', category: 'dogs', subcategory: 'toys', price: '5', description: 'asdasdasdsasdasdadasdasd'  ,imageUrl: 'https://static.wixstatic.com/media/82fcd3_6e02cbc1d0aa495d86c6058a64a07fb8~mv2_d_1920_1920_s_2.jpg/v1/fill/w_125,h_125,al_c,q_85,usm_0.66_1.00_0.01/82fcd3_6e02cbc1d0aa495d86c6058a64a07fb8~mv2_d_1920_1920_s_2.webp'},
-  ])
+    this.form.get('category').valueChanges.subscribe(value => {
+      this.subcategories$ = this.subcategoryService.getByCategory(value)
+        .pipe(map(el => el.map(el => el.name)))
+    })
+
+    this.getAll()
+  }
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  onFileSelected(event) {
+    if (event.target.files && event.target.files.length) {
+      const reader = new FileReader()
+      reader.readAsDataURL(event.target.files[0])
+      reader.onload = (e) => {
+        this.form.get('imageUrl').setValue(e.target.result)
+        this.cdr.detectChanges();
+      }
+    }
+  }
+
+  getAll(): void {
+    this.productService.getAll().subscribe(res => {
+      this.dataSource = new MatTableDataSource(res)
+      this.cdr.detectChanges()
+    })
+  }
+
+  submit(): void {
+    this.productService.create(this.form.value).subscribe(() => {
+      this.getAll()
+    })
+    this.resetForm()
+  }
+
+  delete(event, {_id}): void {
+    event.stopImmediatePropagation()
+    this.productService.delete(_id).subscribe(() => {
+      this.getAll()
+    })
+    this.resetForm()
+  }
+
+  resetForm(): void {
+    this.form.reset()
+    for (const controlName in this.form.controls) {
+      this.form.get(controlName).setErrors(null)
+    }
+  }
+
+  edit(element: IProduct & {_id: string}): void {
+    this.form.setValue({
+      name: element.name,
+      category: element.category,
+      subcategory: element.subcategory,
+      price: element.price,
+      description: element.description,
+      imageUrl: element.imageUrl,
+    })
+    // this.editingId = element._id
   }
 }

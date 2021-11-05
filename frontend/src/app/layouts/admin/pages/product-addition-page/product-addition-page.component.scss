@@ -1,3 +1,5 @@
+@import "src/assets/styles/variables";
+
 table {
   width: 100%;
   margin: 0 auto;
@@ -52,4 +54,37 @@ tr.example-element-row:not(.example-expanded-row):active {
 
 .mat-form-field {
   width: 100%;
+}
+
+.block_edition {
+  width: 90%;
+  margin: 50px auto;
+
+  .add_image {
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 20px;
+  }
+}
+
+.add {
+  font-family: "Poppins", sans-serif;
+  color: $secondColor;
+  background-color: $thirdColor;
+  border: none;
+  width: 80px;
+  height: 45px;
+  letter-spacing: 1px;
+  font-size: 18px;
+
+  &:hover {
+    color: $thirdColor;
+    background-color: $secondColor;
+    border: 3px solid $thirdColor;
+    font-weight: bold;
+  }
+
+  &:focus {
+    outline: none;
+  }
 }

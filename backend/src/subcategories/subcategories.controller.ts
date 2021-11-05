@@ -14,8 +14,8 @@ export class SubcategoriesController {
         return this.subcategoryService.getAll()
     }
 
-    @Get()
-    getByCategory(category: string): Promise<Subcategory[]> {
+    @Get(':category')
+    getByCategory(@Param('category') category: string): Promise<Subcategory[]> {
         return this.subcategoryService.getByCategory(category)
     }
 
@@ -31,7 +31,7 @@ export class SubcategoriesController {
         return this.subcategoryService.remove(id)
     }
 
-    @Put('id')
+    @Put(':id')
     update(@Body() updateSubcategoryDto, @Param('id') id: string): Promise<Subcategory> {
         return this.subcategoryService.update(id, updateSubcategoryDto)
     }

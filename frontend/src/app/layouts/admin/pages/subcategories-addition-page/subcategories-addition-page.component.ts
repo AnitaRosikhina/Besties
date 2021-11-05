@@ -13,6 +13,7 @@ import {SubcategoryService} from "./services/subcategory.service";
 export class SubcategoriesAdditionPageComponent implements OnInit {
   displayedColumns: string[] = ['name', 'category', 'editButton', 'deleteButton'];
   form: FormGroup;
+  editingId: string
 
   dataSource: MatTableDataSource<ISubcategory>
 
@@ -57,9 +58,24 @@ export class SubcategoriesAdditionPageComponent implements OnInit {
     }
   }
 
-  delete({_id}) {
+  delete({_id}): void {
     this.subcategoryService.delete(_id).subscribe(() => {
       this.getAll()
+    })
+  }
+
+  edit(element: ISubcategory & {_id: string}): void {
+    this.form.setValue({
+      name: element.name,
+      category: element.category,
+    })
+    this.editingId = element._id
+  }
+
+  update(): void {
+    this.subcategoryService.edit(this.editingId, this.form.value).subscribe(() => {
+      this.getAll()
+      this.editingId = null
     })
   }
 }
