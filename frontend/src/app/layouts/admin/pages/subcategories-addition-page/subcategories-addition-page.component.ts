@@ -1,11 +1,8 @@
-import {Component, ChangeDetectionStrategy, OnInit} from '@angular/core';
+import {Component, ChangeDetectionStrategy, OnInit, ChangeDetectorRef} from '@angular/core';
 import {MatTableDataSource} from "@angular/material/table";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-
-export interface ISubcategory {
-  category: string
-  name: string
-}
+import {ISubcategory} from "../../../../shared/models/subcategory.model";
+import {SubcategoryService} from "./services/subcategory.service";
 
 @Component({
   selector: 'app-subcategories-addition-page',
@@ -17,22 +14,26 @@ export class SubcategoriesAdditionPageComponent implements OnInit {
   displayedColumns: string[] = ['name', 'category'];
   form: FormGroup;
 
-  dataSource: MatTableDataSource<ISubcategory> = new MatTableDataSource([
-    {name: 'Hydrogen', category: 'dogs'},
-    {name: 'Nitrogen',category: 'dogs'},
-    {name: 'Oxygen',category: 'dogs'},
-    {name: 'Fluorine',category: 'dogs'},
-    {name: 'Neon',category: 'dogs'},
-  ])
+  dataSource: MatTableDataSource<ISubcategory>
 
   categories: string[] = ['Dogs', 'Cats', 'Birds', 'Fish', 'Small Animals', 'Reptiles'];
 
-  constructor(private fb: FormBuilder) {
-  }
+  constructor(private fb: FormBuilder,
+              private cdr: ChangeDetectorRef,
+              private subcategoryService: SubcategoryService) {}
+
   ngOnInit() {
     this.form = this.fb.group({
       category: [null, [Validators.required]],
-      subcategory: [null, [Validators.required]]
+      name: [null, [Validators.required]]
+    })
+    this.getAll();
+  }
+
+  getAll(): void {
+    this.subcategoryService.getAll().subscribe(res => {
+      this.dataSource = new MatTableDataSource(res)
+      this.cdr.detectChanges()
     })
   }
 
@@ -43,6 +44,9 @@ export class SubcategoriesAdditionPageComponent implements OnInit {
   }
 
   submit(): void {
+    this.subcategoryService.create(this.form.value).subscribe(() => {
+      this.getAll()
+    })
     this.resetForm()
   }
 

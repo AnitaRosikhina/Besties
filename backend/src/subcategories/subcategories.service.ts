@@ -10,6 +10,10 @@ export class SubcategoriesService {
     constructor(@InjectModel(Subcategory.name) private subcategoryModel: Model<SubcategoryDocument>) {
     }
 
+    async getAll(): Promise<Subcategory[]> {
+        return this.subcategoryModel.find().exec()
+    }
+
     async getByCategory(category: string): Promise<Subcategory[]> {
         return this.subcategoryModel.find({category}).exec()
     }

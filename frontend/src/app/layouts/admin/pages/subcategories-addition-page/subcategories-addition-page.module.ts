@@ -7,6 +7,8 @@ import {MatTableModule} from "@angular/material/table";
 import {MatInputModule} from "@angular/material/input";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatSelectModule} from "@angular/material/select";
+import {SubcategoryService} from "./services/subcategory.service";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [SubcategoriesAdditionPageComponent],
@@ -16,8 +18,10 @@ import {MatSelectModule} from "@angular/material/select";
     MatTableModule,
     MatInputModule,
     ReactiveFormsModule,
+    HttpClientModule,
     FormsModule,
     MatSelectModule
-  ]
+  ],
+  providers: [SubcategoryService]
 })
 export class SubcategoriesAdditionPageModule {}

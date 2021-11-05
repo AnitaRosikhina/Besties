@@ -10,6 +10,11 @@ export class SubcategoriesController {
     }
 
     @Get()
+    getAll(): Promise<Subcategory[]> {
+        return this.subcategoryService.getAll()
+    }
+
+    @Get()
     getByCategory(category: string): Promise<Subcategory[]> {
         return this.subcategoryService.getByCategory(category)
     }
