@@ -5,7 +5,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {SubcategoryService} from "../subcategories-addition-page/services/subcategory.service";
 import {Observable} from "rxjs";
 import {map} from "rxjs/operators";
-import {ProductService} from "./services/product.service";
+import {ProductService} from "../../../../shared/services/product.service";
 import {DecimalPipe, TitleCasePipe} from "@angular/common";
 
 export interface IProduct {

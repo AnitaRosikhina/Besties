@@ -1,7 +1,7 @@
 import {Component, OnInit, ChangeDetectionStrategy, Input} from '@angular/core';
-import {IProductRequest} from "../../models/product.model";
 import {MatDialog} from "@angular/material/dialog";
 import {ProductModalComponent} from "../product-modal/product-modal.component";
+import {IProduct} from "../../../layouts/admin/pages/product-addition-page/product-addition-page.component";
 
 @Component({
   selector: 'app-product-card',
@@ -10,7 +10,7 @@ import {ProductModalComponent} from "../product-modal/product-modal.component";
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProductCardComponent implements OnInit {
-  @Input() product: IProductRequest
+  @Input() product: IProduct
 
   count = 1;
 
@@ -19,7 +19,7 @@ export class ProductCardComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  changeCount(product: IProductRequest, increase: boolean) {
+  changeCount(product: IProduct, increase: boolean) {
     if(increase) {
       ++this.count
     } else if(!increase && this.count > 1) {

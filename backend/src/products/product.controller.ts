@@ -19,10 +19,17 @@ export class ProductController {
         return this.productService.getById(id)
     }
 
+    @Get(':category')
+    getByCategory(
+        @Param('category') category: string,
+    ): Promise<Product[]> {
+        return this.productService.getByCategory(category)
+    }
+
     @Get()
     getByCategoryAndSubCategory(
         @Param('category') category: string,
-        @Param('subcategory') subcategory: string
+        @Param('subcategory') subcategory?: string
     ): Promise<Product[]> {
         return this.productService.getByCategoryAndSubCategory(category, subcategory)
     }

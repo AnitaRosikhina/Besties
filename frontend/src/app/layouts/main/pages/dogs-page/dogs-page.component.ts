@@ -1,4 +1,7 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {Observable} from "rxjs";
+import {IProduct} from "../../../admin/pages/product-addition-page/product-addition-page.component";
+import {ProductService} from "../../../../shared/services/product.service";
 
 @Component({
   selector: 'app-dogs-page',
@@ -7,10 +10,13 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DogsPageComponent implements OnInit {
+  products$: Observable<IProduct[]>;
 
-  constructor() { }
+  private readonly category = 'Dogs'
+  constructor(private productsService: ProductService) { }
 
   ngOnInit(): void {
+    this.products$ = this.productsService.getByCategory(this.category)
   }
 
 }

@@ -18,6 +18,10 @@ export class ProductService {
         return this.productModel.findById(id)
     }
 
+    async getByCategory(category: string): Promise<Product[]> {
+        return this.productModel.find({category}).exec()
+    }
+
     async getByCategoryAndSubCategory(category: string, subcategory: string): Promise<Product[]> {
         return this.productModel.find({category, subcategory}).exec()
     }

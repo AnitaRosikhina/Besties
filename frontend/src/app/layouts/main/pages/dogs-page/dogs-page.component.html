@@ -1,1 +1,3 @@
-<p>dogs-page works!</p>
+<div class="cards">
+  <app-product-card *ngFor="let product of products$ | async" [product]="product"></app-product-card>
+</div>

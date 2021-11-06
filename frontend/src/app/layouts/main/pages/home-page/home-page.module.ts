@@ -5,6 +5,8 @@ import {HomePageRoutingModule} from "./home-page-routing.module";
 import {IvyCarouselModule} from "angular-responsive-carousel";
 import {CommonButtonModule} from "../../../../shared/components/common-button/common-button.module";
 import {ProductCardModule} from "../../../../shared/components/product-card/product-card.module";
+import {ProductService} from "../../../../shared/services/product.service";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [HomePageComponent],
@@ -14,6 +16,8 @@ import {ProductCardModule} from "../../../../shared/components/product-card/prod
     IvyCarouselModule,
     CommonButtonModule,
     ProductCardModule,
-  ]
+    HttpClientModule
+  ],
+  providers: [ProductService]
 })
 export class HomePageModule { }
