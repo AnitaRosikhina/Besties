@@ -1,1 +1,6 @@
-<p>cats-page works!</p>
+<h2 class="title">Cats</h2>
+<app-sort-by></app-sort-by>
+<div class="filter_product_list">
+  <app-filter-by [subcategories]="subcategories$ | async"></app-filter-by>
+  <app-products-list [products]="products$ | async"></app-products-list>
+</div>
