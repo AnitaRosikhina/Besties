@@ -1,0 +1,33 @@
+.example-action-buttons {
+  padding-bottom: 20px;
+}
+
+.example-headers-align .mat-expansion-panel-header-title,
+.example-headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+
+mat-panel-title {
+  font-weight: bold;
+}
+
+.filter {
+  width: 200px;
+
+  .name {
+    font-size: 26px;
+    font-family: "Catamaran", sans-serif;
+  }
+
+  .subcategories {
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    font-family: "Catamaran", sans-serif;
+  }
+}
