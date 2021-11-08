@@ -41,6 +41,10 @@ const routes: Routes = [
         path: 'details',
         loadChildren: () => import('./pages/products-details/products-details.module').then(m => m.ProductsDetailsModule)
       },
+      {
+        path: 'basket',
+        loadChildren: () => import('./pages/basket-page/basket-page.module').then(m => m.BasketPageModule)
+      },
       {path: '', redirectTo: 'home'}
     ]
   },
