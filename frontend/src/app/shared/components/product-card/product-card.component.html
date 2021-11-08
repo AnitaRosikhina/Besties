@@ -31,6 +31,9 @@
       </button>
     </div>
     <app-common-button
+      mat-stroked-button
+      (click)="openSnackBar()"
+      aria-label="Show an example snack-bar"
       text="Add to Card"
       [classes]="['button_add']"
     ></app-common-button>

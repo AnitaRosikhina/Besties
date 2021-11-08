@@ -2,6 +2,7 @@ import {Component, OnInit, ChangeDetectionStrategy, Input} from '@angular/core';
 import {MatDialog} from "@angular/material/dialog";
 import {ProductModalComponent} from "../product-modal/product-modal.component";
 import {IProduct} from "../../../layouts/admin/pages/product-addition-page/product-addition-page.component";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-product-card',
@@ -11,10 +12,10 @@ import {IProduct} from "../../../layouts/admin/pages/product-addition-page/produ
 })
 export class ProductCardComponent implements OnInit {
   @Input() product: IProduct
-
   count = 1;
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog,
+              private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
   }
@@ -35,5 +36,11 @@ export class ProductCardComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe();
+  }
+
+  openSnackBar() {
+    this._snackBar.open('Product added to cart', '', {
+      duration: 3000
+    });
   }
 }
