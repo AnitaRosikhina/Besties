@@ -1,3 +1,6 @@
-<div class="cards">
-  <app-product-card *ngFor="let product of products$ | async" [product]="product"></app-product-card>
+<h2 class="title">Dogs</h2>
+<app-sort-by></app-sort-by>
+<div class="filter_product_list">
+  <app-filter-by [subcategories]="subcategories$ | async"></app-filter-by>
+  <app-products-list [products]="products$ | async"></app-products-list>
 </div>
