@@ -11,6 +11,7 @@ import {HeaderComponent} from "../../shared/components/header/header.component";
 import {FooterComponent} from "../../shared/components/footer/footer.component";
 import {LoginModalComponent} from "../../shared/components/login-modal/login-modal.component";
 import {RegistrationModalComponent} from "../../shared/components/registration-modal/registration-modal.component";
+import {CommonModule} from "@angular/common";
 
 
 @NgModule({
@@ -21,14 +22,15 @@ import {RegistrationModalComponent} from "../../shared/components/registration-m
     LoginModalComponent,
     RegistrationModalComponent
   ],
-  imports: [
-    MainRoutingModule,
-    MatSidenavModule,
-    MatButtonModule,
-    FormsModule,
-    MatDialogModule,
-    MatInputModule,
-    ReactiveFormsModule
-  ]
+    imports: [
+        MainRoutingModule,
+        MatSidenavModule,
+        MatButtonModule,
+        FormsModule,
+        MatDialogModule,
+        MatInputModule,
+        ReactiveFormsModule,
+        CommonModule
+    ]
 })
 export class MainModule {}

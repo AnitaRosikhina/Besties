@@ -2,19 +2,22 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {MatDialog, MatDialogRef} from "@angular/material/dialog";
 import {RegistrationModalComponent} from "../registration-modal/registration-modal.component";
+import {LoginService} from "../../services/login.service";
 
 @Component({
   selector: 'app-login-modal',
   templateUrl: './login-modal.component.html',
   styleUrls: ['./login-modal.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [LoginService]
 })
 export class LoginModalComponent implements OnInit {
   form: FormGroup;
 
   constructor(private dialog: MatDialog,
               private fb: FormBuilder,
-              private dialogRef: MatDialogRef<LoginModalComponent>) { }
+              private dialogRef: MatDialogRef<LoginModalComponent>,
+              private loginService: LoginService) { }
 
   ngOnInit(): void {
     this.form = this.fb.group({
@@ -24,7 +27,9 @@ export class LoginModalComponent implements OnInit {
   }
 
   submit(): void {
-    this.dialogRef.close();
+    this.loginService.login(this.form.value).subscribe(() => {
+      this.dialogRef.close()
+    })
   }
 
   openDialog() {

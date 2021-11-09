@@ -50,9 +50,14 @@
       </div>
     </div>
     <div class="bottom_line_right_block">
-      <div class="block_logIn" (click)="openDialog()">
+      <div class="block_logIn" (click)="openDialog()" *ngIf="!loggedIn">
         <img class="icon_logIn" src="../../../../assets/icons/account.svg">
         <span class="title_logIn">Log in</span>
+      </div>
+      <div *ngIf="loggedIn">
+        <img class="icon_logIn" src="../../../../assets/icons/account.svg">
+        <span>{{usersEmail}}</span>
+        <span class="title_logIn" (click)="logout()">Log Out</span>
       </div>
       <div class="block_basket">
         <img routerLink="/basket" class="icon_basket" src="../../../../assets/icons/basket.png">
