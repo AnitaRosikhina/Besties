@@ -6,7 +6,3 @@ export interface IProductRequest {
   category: string
   subcategory: string
 }
-
-export interface IProductResponse extends IProductRequest {
-  id: string
-}

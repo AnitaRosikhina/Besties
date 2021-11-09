@@ -1,23 +1,29 @@
 <div class="filter">
-  <h3 class="name">Filter By</h3>
-  <mat-accordion class="example-headers-align" multi>
-    <mat-expansion-panel>
+  <mat-accordion>
+    <mat-expansion-panel hideToggle>
       <mat-expansion-panel-header>
         <mat-panel-title>
-          All
+          Filter By
         </mat-panel-title>
       </mat-expansion-panel-header>
-      <div class="subcategories">
-        <span *ngFor="let subcategory of subcategories">{{ subcategory }}</span>
-      </div>
-    </mat-expansion-panel>
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          Price
-        </mat-panel-title>
-      </mat-expansion-panel-header>
-      <ngx-slider [(value)]="value" [(highValue)]="highValue" [options]="options"></ngx-slider>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            All
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="subcategories">
+          <span class="item" *ngFor="let subcategory of subcategories">{{ subcategory }}</span>
+        </div>
+      </mat-expansion-panel>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Price
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <ngx-slider [(value)]="value" [(highValue)]="highValue" [options]="options"></ngx-slider>
+      </mat-expansion-panel>
     </mat-expansion-panel>
   </mat-accordion>
 </div>

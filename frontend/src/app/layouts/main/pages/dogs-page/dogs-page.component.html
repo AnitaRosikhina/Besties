@@ -1,6 +1,6 @@
 <h2 class="title">Dogs</h2>
-<app-sort-by></app-sort-by>
-<div class="filter_product_list">
+<div class="sort_filter">
   <app-filter-by [subcategories]="subcategories$ | async"></app-filter-by>
-  <app-products-list [products]="products$ | async"></app-products-list>
+  <app-sort-by></app-sort-by>
 </div>
+<app-products-list [products]="products$ | async"></app-products-list>
