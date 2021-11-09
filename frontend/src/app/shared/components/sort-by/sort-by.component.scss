@@ -1,4 +1,26 @@
+@import "src/assets/styles/variables";
+
 .sort-by {
   display: flex;
   justify-content: flex-end;
 }
+
+.select_name {
+  @media screen and (max-width:$media-sm) {
+    display: none;
+  }
+}
+
+.select_icon {
+  display: none;
+  @media screen and (max-width:$media-sm) {
+    display: block;
+  }
+}
+
+::ng-deep .mat-form-field {
+  @media screen and (max-width:$media-sm) {
+    width: 65px;
+  }
+}
+
