@@ -1,1 +1,60 @@
-<p>basket-page works!</p>
+<div class="products">
+  <div class="product_list">
+    <div class="title">
+      My Card
+    </div>
+    <div class="product_info">
+      <div class="product_description">
+        <div>
+          <img
+            src="https://static.wixstatic.com/media/82fcd3_3d488e36d15f48e98ccc88d7d4b223b4~mv2_d_1920_1920_s_2.jpg/v1/fill/w_125,h_125,al_c,q_85,usm_0.66_1.00_0.01/82fcd3_3d488e36d15f48e98ccc88d7d4b223b4~mv2_d_1920_1920_s_2.webp">
+        </div>
+        <div class="flex">
+          <div class="name">I'm product</div>
+          <div class="price">{{ 4 | currency}}</div>
+          <div class="button_count">
+            <button
+              (click)="changeCount(product, false)"
+            >
+              &minus;
+            </button>
+            <span>{{ count }}</span>
+            <button
+              (click)="changeCount(product, true)"
+            >
+              +
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="sum">
+        <div class="product_total">{{ 30 | currency }}</div>
+        <div class="close">
+          x
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="order">
+    <div class="title">
+      Order Summary
+    </div>
+    <div>
+      <div class="info_order">
+        <div class="order_line">
+          <span>Subtotal</span>
+          <span>{{ 234 | currency }}</span>
+        </div>
+        <div class="order_line">
+          <span>Shipping</span>
+          <span>FREE</span>
+        </div>
+      </div>
+      <div class="total">
+        <span>Total</span>
+        <span>{{ 263 | currency }}</span>
+      </div>
+      <app-common-button text="Checkout" [classes]="['button_add_modal']"></app-common-button>
+    </div>
+  </div>
+</div>

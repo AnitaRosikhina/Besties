@@ -1,0 +1,148 @@
+@import "src/assets/styles/variables";
+
+.products {
+  display: flex;
+  padding: 30px 100px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  @media screen and (max-width: $media-md){
+    padding: 20px 5px;
+  }
+
+  .title {
+    color: $fourthColor;
+    font-size: 20px;
+    font-family: "Poppins", sans-serif;
+    font-weight: bold;
+    border-bottom: 1px solid #cccccc;
+    padding: 0 0 20px;
+  }
+
+  .product_list {
+    width: 70%;
+    margin: 0 20px 0;
+    @media screen and (max-width: $media-lg){
+      width: 60%;
+    }
+    @media screen and (max-width: $media-md){
+      width: 100%;
+      margin: 0;
+    }
+  }
+
+  .product_info {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0;
+    border-bottom: 1px solid #cccccc;
+
+    .product_description {
+      display: flex;
+
+      img {
+        width: 100px;
+      }
+
+      .flex {
+        margin: 0 0 0 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .name {
+        font-family: "Catamaran", sans-serif;
+        font-size: 16px;
+      }
+
+      .price {
+        color: #00000099;
+        font-size: 14px;
+        font-family: "Catamaran", sans-serif;
+      }
+
+      .button_count {
+        display: flex;
+        justify-content: space-between;
+        padding: 2px 0;
+        border: 1px solid #cccccc;
+        width: 70px;
+        height: 20px;
+        font-size: 16px;
+        font-family: "Poppins", sans-serif;
+
+        button {
+          border: none;
+          background-color: white;
+          font-size: 20px;
+
+          &:focus {
+            outline: none;
+          }
+        }
+      }
+    }
+
+    .sum {
+      display: flex;
+      //line-height: 31px;
+      @media screen and (max-width: $media-md){
+        justify-content: space-between;
+        flex-direction: column-reverse;
+      }
+
+      .product_total {
+        font-size: 16px;
+        font-family: "Catamaran", sans-serif;
+        margin: 0 20px 0;
+      }
+
+      .close {
+        font-size: 20px;
+        color: #575757;
+        display: flex;
+        justify-content: flex-end;
+        padding: 0 12px 0;
+        }
+      }
+    }
+  }
+
+  .order {
+    @media screen and (max-width: $media-md){
+      width: 100%;
+    }
+  }
+
+  .info_order {
+    padding: 20px 0;
+    border-bottom: 1px solid #cccccc;
+    margin: 0 0 20px;
+  }
+
+  .order_line {
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    font-family: "Catamaran", sans-serif;
+    &:not(:last-child) {
+      margin: 0 0 10px;
+    }
+  }
+
+  .total {
+    font-size: 20px;
+    font-family: "Catamaran", sans-serif;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .order .title {
+    @media screen and (max-width: $media-md) {
+      margin: 20px 0 0;
+    }
+  }
+
+
+
+
