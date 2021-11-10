@@ -1,4 +1,4 @@
-import {Component, ChangeDetectionStrategy, OnInit, ChangeDetectorRef} from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, ViewChild} from '@angular/core';
 import {MatTableDataSource} from "@angular/material/table";
 import {animate, state, style, transition, trigger} from "@angular/animations";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
@@ -7,6 +7,7 @@ import {Observable} from "rxjs";
 import {map} from "rxjs/operators";
 import {ProductService} from "../../../../shared/services/product.service";
 import {DecimalPipe, TitleCasePipe} from "@angular/common";
+import {MatPaginator} from '@angular/material/paginator';
 
 export interface IProduct {
   category: string
@@ -30,7 +31,7 @@ export interface IProduct {
     ]),
   ],
 })
-export class ProductAdditionPageComponent  implements OnInit {
+export class ProductAdditionPageComponent implements OnInit {
   expandedElement: IProduct | null;
   displayedColumns: string[] = ['name', 'category', 'subcategory', 'price', 'editButton', 'deleteButton'];
   form: FormGroup;
@@ -38,6 +39,8 @@ export class ProductAdditionPageComponent  implements OnInit {
   subcategories$: Observable<string[]>
   dataSource: MatTableDataSource<IProduct>
   editingId: string
+
+  @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(private fb: FormBuilder,
               private cdr: ChangeDetectorRef,
@@ -83,6 +86,7 @@ export class ProductAdditionPageComponent  implements OnInit {
   getAll(): void {
     this.productService.getAll().subscribe(res => {
       this.dataSource = new MatTableDataSource(res)
+      this.dataSource.paginator = this.paginator
       this.cdr.detectChanges()
     })
   }

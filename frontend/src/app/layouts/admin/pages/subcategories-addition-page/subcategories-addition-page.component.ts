@@ -1,9 +1,10 @@
-import {Component, ChangeDetectionStrategy, OnInit, ChangeDetectorRef} from '@angular/core';
+import {Component, ChangeDetectionStrategy, OnInit, ChangeDetectorRef, ViewChild} from '@angular/core';
 import {MatTableDataSource} from "@angular/material/table";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ISubcategory} from "../../../../shared/models/subcategory.model";
 import {SubcategoryService} from "./services/subcategory.service";
 import {TitleCasePipe} from "@angular/common";
+import {MatPaginator} from "@angular/material/paginator";
 
 @Component({
   selector: 'app-subcategories-addition-page',
@@ -19,6 +20,8 @@ export class SubcategoriesAdditionPageComponent implements OnInit {
   dataSource: MatTableDataSource<ISubcategory>
 
   categories: string[] = ['Dogs', 'Cats', 'Birds', 'Fish', 'Small Animals', 'Reptiles'];
+
+  @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(private fb: FormBuilder,
               private cdr: ChangeDetectorRef,
@@ -36,6 +39,7 @@ export class SubcategoriesAdditionPageComponent implements OnInit {
   getAll(): void {
     this.subcategoryService.getAll().subscribe(res => {
       this.dataSource = new MatTableDataSource(res)
+      this.dataSource.paginator = this.paginator
       this.cdr.detectChanges()
     })
   }

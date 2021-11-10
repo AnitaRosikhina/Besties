@@ -10,6 +10,7 @@ import {MatSelectModule} from "@angular/material/select";
 import {SubcategoryService} from "./services/subcategory.service";
 import {HttpClientModule} from "@angular/common/http";
 import {CommonButtonModule} from "../../../../shared/components/common-button/common-button.module";
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 @NgModule({
   declarations: [SubcategoriesAdditionPageComponent],
@@ -22,7 +23,8 @@ import {CommonButtonModule} from "../../../../shared/components/common-button/co
     HttpClientModule,
     FormsModule,
     MatSelectModule,
-    CommonButtonModule
+    CommonButtonModule,
+    MatPaginatorModule
   ],
   providers: [SubcategoryService, TitleCasePipe]
 })

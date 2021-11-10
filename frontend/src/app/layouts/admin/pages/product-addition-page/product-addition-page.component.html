@@ -63,13 +63,12 @@
     </button>
   </form>
 </div>
-<div class="block_content">
+<div class="block_content mat-elevation-z8">
   <mat-form-field appearance="standard">
     <mat-label>Filter</mat-label>
     <input matInput (keyup)="applyFilter($event)">
   </mat-form-field>
   <table
-    class="mat-elevation-z8"
     mat-table
     [dataSource]="dataSource"
     multiTemplateDataRows
@@ -136,5 +135,6 @@
     ></tr>
     <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
   </table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]"></mat-paginator>
 </div>
 

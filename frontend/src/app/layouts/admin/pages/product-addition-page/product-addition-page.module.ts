@@ -12,6 +12,7 @@ import {SubcategoryService} from "../subcategories-addition-page/services/subcat
 import {HttpClientModule} from "@angular/common/http";
 import {MatButtonModule} from "@angular/material/button";
 import {ProductService} from "../../../../shared/services/product.service";
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 @NgModule({
   declarations: [ProductAdditionPageComponent],
@@ -24,7 +25,8 @@ import {ProductService} from "../../../../shared/services/product.service";
     ReactiveFormsModule,
     MatSelectModule,
     HttpClientModule,
-    MatButtonModule
+    MatButtonModule,
+    MatPaginatorModule
   ],
   providers: [SubcategoryService, ProductService, TitleCasePipe, DecimalPipe]
 })
