@@ -1,70 +1,72 @@
 <header>
-  <section class="top_line">
-    <span class="top_line_title">FREE SHIPPING - ORDER TODAY</span>
-  </section>
-  <section class="middle_line">
-      <div class="middle_line_left_block" routerLink="home">
-        <div class="middle_line_icon">
-          <img class="icon_paw" src="../../../../assets/icons/paw.png">
+    <section class="top_line">
+        <span class="top_line_title">FREE SHIPPING - ORDER TODAY</span>
+    </section>
+    <section class="middle_line">
+        <div class="middle_line_left_block" routerLink="home">
+            <div class="middle_line_icon">
+                <img class="icon_paw" src="../../../../assets/icons/paw.png">
+            </div>
+            <div>
+                <div class="middle_line_title">BESTIES</div>
+                <div class="middle_line_description">A Pet's Favorite Place</div>
+            </div>
         </div>
-        <div>
-          <div class="middle_line_title">BESTIES</div>
-          <div class="middle_line_description">A Pet's Favorite Place</div>
+        <div class="middle_line_right_block">
+            <div>Call Us</div>
+            <div>123-456-789</div>
         </div>
-      </div>
-      <div class="middle_line_right_block">
-        <div>Call Us</div>
-        <div>123-456-789</div>
-      </div>
-      <div class="middle_line_right_sidebar">
-        <button (click)="toggleDrawer.emit()" mat-flat-button>
-          <img class="icon_main" src="../../../../assets/icons/menu.png">
-        </button>
-      </div>
-  </section>
-  <section class="bottom_line">
-    <div class="bottom_line_categories_block">
-      <div class="bottom_line_categories" routerLink="shop-all" routerLinkActive="active">
-        SHOP ALL
-      </div>
-      <div class="bottom_line_categories" routerLink="dogs" routerLinkActive="active">
-        DOGS
-      </div>
-      <div class="bottom_line_categories" routerLink="cats" routerLinkActive="active">
-        CATS
-      </div>
-      <div class="bottom_line_categories" routerLink="birds" routerLinkActive="active">
-        BIRDS
-      </div>
-      <div class="bottom_line_categories" routerLink="fish-and-aquatics" routerLinkActive="active">
-        FISH & AQUATICS
-      </div>
-      <div class="bottom_line_categories" routerLink="small-animals" routerLinkActive="active">
-        SMALL ANIMALS
-      </div>
-      <div class="bottom_line_categories" routerLink="reptiles" routerLinkActive="active">
-        REPTILES
-      </div>
-      <div class="bottom_line_categories" routerLink="contact" routerLinkActive="active">
-        CONTACT
-      </div>
-    </div>
-    <div class="bottom_line_right_block">
-      <div class="block_logIn" (click)="openDialog()" *ngIf="!loggedIn">
-        <img class="icon_logIn" src="../../../../assets/icons/account.svg">
-        <span class="title_logIn">Log in</span>
-      </div>
-      <div *ngIf="loggedIn">
-        <img class="icon_logIn" src="../../../../assets/icons/account.svg">
-        <span>{{usersEmail}}</span>
-        <span class="title_logIn" (click)="logout()">Log Out</span>
-      </div>
-      <div class="block_basket">
-        <img routerLink="/basket" class="icon_basket" src="../../../../assets/icons/basket.png">
-        <div class="count">
-          <span class="sum">12</span>
+        <div class="middle_line_right_sidebar">
+            <button (click)="toggleDrawer.emit()" mat-flat-button>
+                <img class="icon_main" src="../../../../assets/icons/menu.png">
+            </button>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
+    <section class="bottom_line">
+        <div class="bottom_line_categories_block">
+            <div class="bottom_line_categories" routerLink="shop-all" routerLinkActive="active">
+                SHOP ALL
+            </div>
+            <div class="bottom_line_categories" routerLink="dogs" routerLinkActive="active">
+                DOGS
+            </div>
+            <div class="bottom_line_categories" routerLink="cats" routerLinkActive="active">
+                CATS
+            </div>
+            <div class="bottom_line_categories" routerLink="birds" routerLinkActive="active">
+                BIRDS
+            </div>
+            <div class="bottom_line_categories" routerLink="fish-and-aquatics" routerLinkActive="active">
+                FISH & AQUATICS
+            </div>
+            <div class="bottom_line_categories" routerLink="small-animals" routerLinkActive="active">
+                SMALL ANIMALS
+            </div>
+            <div class="bottom_line_categories" routerLink="reptiles" routerLinkActive="active">
+                REPTILES
+            </div>
+            <div class="bottom_line_categories" routerLink="contact" routerLinkActive="active">
+                CONTACT
+            </div>
+        </div>
+        <div class="bottom_line_right_block">
+            <div class="block_logIn" (click)="openDialog()" *ngIf="!loggedIn">
+                <img class="icon_logIn" src="../../../../assets/icons/account.svg">
+                <span class="title_logIn">Log in</span>
+            </div>
+            <div class="block_logOut" *ngIf="loggedIn">
+                <div class="user">
+                    <img class="icon_logOut" src="../../../../assets/icons/account.svg">
+                    <div class="user_name">{{usersEmail}}</div>
+                </div>
+                <div class="title_logOut" (click)="logout()">Log Out</div>
+            </div>
+            <div class="block_basket">
+                <img routerLink="/basket" class="icon_basket" src="../../../../assets/icons/basket.png">
+                <div class="count">
+                    <span class="sum">12</span>
+                </div>
+            </div>
+        </div>
+    </section>
 </header>

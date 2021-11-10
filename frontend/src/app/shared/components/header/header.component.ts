@@ -20,7 +20,7 @@ export class HeaderComponent {
               private jwtHelperService: JwtHelperService,
               private cdr: ChangeDetectorRef,
               private loginService: LoginService) {
-    this.usersEmail = this.loginService.getDecodedUser().email
+    this.usersEmail = this.loginService.getDecodedUser()?.email
   }
 
   get loggedIn(): boolean {

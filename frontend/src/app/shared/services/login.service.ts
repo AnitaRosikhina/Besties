@@ -26,7 +26,7 @@ export class LoginService {
     localStorage.removeItem(TOKEN_NAME)
   }
 
-  getDecodedUser(): IUser {
+  getDecodedUser(): IUser | null {
     return this.jwtHelperService.decodeToken()
   }
 }

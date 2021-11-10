@@ -140,7 +140,6 @@
 
   &_right_block {
     display: flex;
-    width: 160px;
     justify-content: space-between;
     @media screen and (max-width: $media-md){
       width: 130px;
@@ -149,7 +148,6 @@
 
     .block_logIn {
       display: flex;
-      width: 80px;
       align-items: center;
       justify-content: space-between;
       @media screen and (max-width: $media-md){
@@ -164,7 +162,8 @@
       .title_logIn {
         color: $thirdColor;
         font-size: 16px;
-        font-family: "Catamaran";
+        font-family: "Catamaran", sans-serif;
+        margin: 0 12px;
       }
     }
 
@@ -195,4 +194,34 @@
   }
 }
 
+.block_logOut {
+  display: flex;
+  align-items: center;
+  @media screen and (max-width: $media-md) {
+    display: none;
+  }
+
+  .user {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .icon_logOut {
+      width: 25px;
+    }
+
+    .user_name {
+      color: $thirdColor;
+      font-family: "Poppins", sans-serif;
+      font-size: 14px;
+    }
+  }
+
+  .title_logOut {
+    color: $fourthColor;
+    font-family: "Catamaran", sans-serif;
+    font-size: 16px;
+    margin: 0 17px;
+  }
+}
 

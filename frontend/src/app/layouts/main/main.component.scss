@@ -55,3 +55,21 @@ mat-drawer {
     }
   }
 }
+
+.user {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .icon_logOut {
+    width: 25px;
+  }
+}
+
+.title_logOut {
+  color: $fourthColor;
+  font-family: "Catamaran", sans-serif;
+  font-size: 16px;
+  margin: 5px 17px;
+  text-align: center;
+}

@@ -1,8 +1,15 @@
 <mat-drawer-container>
   <mat-drawer #drawer class="example-sidenav" mode="over" position="end">
-    <div class="block_logIn">
+    <div class="block_logIn" *ngIf="!loggedIn">
       <img class="icon_logIn" src="assets/icons/account.svg">
       <span class="title_logIn" (click)="openDialog()">Log in</span>
+    </div>
+    <div class="block_logOut" *ngIf="loggedIn">
+      <div class="user">
+        <img class="icon_logOut" src="../../../../assets/icons/account.svg">
+        <div class="user_name">{{usersEmail}}</div>
+      </div>
+      <div class="title_logOut" (click)="logout()">Log Out</div>
     </div>
     <button class="close" mat-flat-button (click)="drawer.close()">X</button>
     <div class="categories">
