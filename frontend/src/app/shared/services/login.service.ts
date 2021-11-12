@@ -13,6 +13,10 @@ export class LoginService {
               private jwtHelperService: JwtHelperService) {
   }
 
+  register(body: IUser): Observable<IUser> {
+    return this.http.post<IUser>('http://localhost:3000/auth/register', body)
+  }
+
   login(body: IUser): Observable<{ access_token: string }> {
     return this.http.post<{ access_token: string }>('http://localhost:3000/auth/login', body)
       .pipe(

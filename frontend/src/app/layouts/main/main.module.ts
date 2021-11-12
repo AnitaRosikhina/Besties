@@ -22,15 +22,15 @@ import {CommonModule} from "@angular/common";
     LoginModalComponent,
     RegistrationModalComponent
   ],
-    imports: [
-        MainRoutingModule,
-        MatSidenavModule,
-        MatButtonModule,
-        FormsModule,
-        MatDialogModule,
-        MatInputModule,
-        ReactiveFormsModule,
-        CommonModule
-    ]
+  imports: [
+    MainRoutingModule,
+    MatSidenavModule,
+    MatButtonModule,
+    FormsModule,
+    MatDialogModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    CommonModule
+  ]
 })
 export class MainModule {}

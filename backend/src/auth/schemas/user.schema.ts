@@ -6,6 +6,9 @@ export type UserDocument = User & Document
 @Schema()
 export class User {
     @Prop({required: true, minlength: 2})
+    name: string
+
+    @Prop({required: true, minlength: 2})
     email: string
 
     @Prop({required: true, minlength: 6})

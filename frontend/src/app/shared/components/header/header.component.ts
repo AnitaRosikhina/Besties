@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Output} from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import {LoginModalComponent} from "../login-modal/login-modal.component";
 import {JwtHelperService} from "@auth0/angular-jwt";
@@ -11,7 +11,7 @@ import {LoginService} from "../../services/login.service";
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [LoginService]
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
   @Output() toggleDrawer = new EventEmitter<void>();
 
   usersEmail: string;
@@ -20,7 +20,10 @@ export class HeaderComponent {
               private jwtHelperService: JwtHelperService,
               private cdr: ChangeDetectorRef,
               private loginService: LoginService) {
-    this.usersEmail = this.loginService.getDecodedUser()?.email
+  }
+
+  ngOnInit() {
+    this.usersEmail = this.loginService.getDecodedUser().email
   }
 
   get loggedIn(): boolean {

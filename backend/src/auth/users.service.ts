@@ -5,6 +5,7 @@ import {Model} from "mongoose";
 import {CreateUserDto} from "./dto/create-user.dto";
 
 export interface IUser {
+    name: string
     email: string
     password?: string
 }
