@@ -1,4 +1,5 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {ProductService} from "../../../../shared/services/product.service";
 
 @Component({
   selector: 'app-shop-all-page',
@@ -7,10 +8,17 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ShopAllPageComponent implements OnInit {
+  products$;
+  categories: string[] = ['Dogs', 'Cats', 'Birds', 'Fish', 'Small Animals', 'Reptiles'];
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(private productService: ProductService) {
   }
 
+  ngOnInit(): void {
+    this.products$ = this.productService.getAll()
+  }
+
+  filterByCategory(event: string): void {
+    this.products$ = this.productService.getByCategory(event)
+  }
 }

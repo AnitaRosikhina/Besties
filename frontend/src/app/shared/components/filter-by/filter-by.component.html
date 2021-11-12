@@ -13,7 +13,7 @@
           </mat-panel-title>
         </mat-expansion-panel-header>
         <div class="subcategories">
-          <span class="item" *ngFor="let subcategory of subcategories">{{ subcategory }}</span>
+          <span class="item" *ngFor="let item of items" (click)="filterByItem.emit(item)">{{ item }}</span>
         </div>
       </mat-expansion-panel>
       <mat-expansion-panel>

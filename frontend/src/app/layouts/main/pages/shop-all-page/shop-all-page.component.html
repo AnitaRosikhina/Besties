@@ -1,1 +1,6 @@
-<p>shop-all-page works!</p>
+<h2 class="title">Shop All</h2>
+<div class="sort_filter">
+  <app-filter-by [items]="categories" (filterByItem)="filterByCategory($event)"></app-filter-by>
+  <app-sort-by></app-sort-by>
+</div>
+<app-products-list [products]="products$ | async"></app-products-list>

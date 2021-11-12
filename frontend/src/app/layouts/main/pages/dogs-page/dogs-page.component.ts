@@ -16,7 +16,8 @@ export class DogsPageComponent implements OnInit {
   products$: Observable<IProduct[]>;
   subcategories$: Observable<string[]>;
 
-  constructor(private productsService: ProductService, private subcategoryService: SubcategoryService) { }
+  constructor(private productsService: ProductService,
+              private subcategoryService: SubcategoryService) { }
 
   ngOnInit(): void {
     this.products$ = this.productsService.getByCategory('Dogs')

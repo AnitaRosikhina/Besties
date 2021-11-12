@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Options} from "@angular-slider/ngx-slider";
 
 @Component({
@@ -8,13 +8,17 @@ import {Options} from "@angular-slider/ngx-slider";
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FilterByComponent implements OnInit {
-  @Input() subcategories: string[]
+  @Input() items: string[]
+
+  @Output() filterByItem = new EventEmitter<string>()
+
   value: number = 40;
   highValue: number = 60;
   options: Options = {
     floor: 0,
     ceil: 100
   };
+
   constructor() { }
 
   ngOnInit(): void {
