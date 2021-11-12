@@ -2,6 +2,7 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {MatDialogRef} from "@angular/material/dialog";
 import {LoginService} from "../../services/login.service";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-registration-modal',
@@ -14,7 +15,8 @@ export class RegistrationModalComponent implements OnInit {
   form: FormGroup;
   constructor(private fb: FormBuilder,
               private loginService: LoginService,
-              private dialogRef: MatDialogRef<RegistrationModalComponent>) { }
+              private dialogRef: MatDialogRef<RegistrationModalComponent>,
+              private _snackBar: MatSnackBar) {}
 
   ngOnInit(): void {
     this.form = this.fb.group({
@@ -26,7 +28,9 @@ export class RegistrationModalComponent implements OnInit {
 
   submit(): void {
     this.loginService.register(this.form.value).subscribe(() => {
-      console.log('SNACKBAR YOUVE REGISTERED SUCCESSFUL');
+      this._snackBar.open(`You've been registered successful!`, 'Close', {
+        duration: 3000
+      })
       this.dialogRef.close();
     })
   }

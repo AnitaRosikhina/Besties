@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import {AdminGuard} from "./shared/guards/admin.guard";
 
 const routes: Routes = [
   {
@@ -8,6 +9,7 @@ const routes: Routes = [
   },
   {
     path: 'admin',
+    canLoad: [AdminGuard],
     loadChildren: () => import('./layouts/admin/admin-layout.module').then(m => m.AdminLayoutModule),
   },
   {path: '**', redirectTo: '', pathMatch: 'full'}

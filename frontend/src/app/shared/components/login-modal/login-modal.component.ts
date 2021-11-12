@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import {Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {MatDialog, MatDialogRef} from "@angular/material/dialog";
 import {RegistrationModalComponent} from "../registration-modal/registration-modal.component";
@@ -17,7 +17,8 @@ export class LoginModalComponent implements OnInit {
   constructor(private dialog: MatDialog,
               private fb: FormBuilder,
               private dialogRef: MatDialogRef<LoginModalComponent>,
-              private loginService: LoginService) { }
+              private loginService: LoginService,
+              private cdr: ChangeDetectorRef) { }
 
   ngOnInit(): void {
     this.form = this.fb.group({
@@ -35,6 +36,8 @@ export class LoginModalComponent implements OnInit {
   openDialog() {
     const dialogRef = this.dialog.open(RegistrationModalComponent);
     this.dialogRef.close();
-    dialogRef.afterClosed().subscribe();
+    dialogRef.afterClosed().subscribe(() => {
+      this.cdr.detectChanges()
+    });
   }
 }

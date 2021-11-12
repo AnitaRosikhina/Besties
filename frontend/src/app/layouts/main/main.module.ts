@@ -12,7 +12,7 @@ import {FooterComponent} from "../../shared/components/footer/footer.component";
 import {LoginModalComponent} from "../../shared/components/login-modal/login-modal.component";
 import {RegistrationModalComponent} from "../../shared/components/registration-modal/registration-modal.component";
 import {CommonModule} from "@angular/common";
-
+import {MatSnackBarModule} from "@angular/material/snack-bar";
 
 @NgModule({
   declarations: [
@@ -30,7 +30,8 @@ import {CommonModule} from "@angular/common";
     MatDialogModule,
     MatInputModule,
     ReactiveFormsModule,
-    CommonModule
+    CommonModule,
+    MatSnackBarModule
   ]
 })
 export class MainModule {}

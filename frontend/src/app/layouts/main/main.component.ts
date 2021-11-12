@@ -24,7 +24,7 @@ export class MainComponent implements OnInit {
               private loginService: LoginService) {}
 
   ngOnInit() {
-    this.usersEmail = this.loginService.getDecodedUser().email
+    this.usersEmail = this.loginService.getDecodedUser()?.email
     this.router.events.subscribe(() => {
       this.drawer.close();
     })

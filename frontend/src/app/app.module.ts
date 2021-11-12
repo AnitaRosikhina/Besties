@@ -6,6 +6,8 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {HttpClientModule} from "@angular/common/http";
 import {JwtModule} from "@auth0/angular-jwt";
 import {TOKEN_NAME} from "./shared/constants/tokens-name";
+import {AdminGuard} from "./shared/guards/admin.guard";
+import {LoginService} from "./shared/services/login.service";
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,6 +24,7 @@ import {TOKEN_NAME} from "./shared/constants/tokens-name";
       }
     })
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  providers: [AdminGuard, LoginService]
 })
 export class AppModule { }

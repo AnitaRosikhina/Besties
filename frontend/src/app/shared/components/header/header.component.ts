@@ -23,7 +23,7 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.usersEmail = this.loginService.getDecodedUser().email
+    this.usersEmail = this.loginService.getDecodedUser()?.email
   }
 
   get loggedIn(): boolean {
