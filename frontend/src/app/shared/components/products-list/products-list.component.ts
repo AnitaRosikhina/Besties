@@ -11,17 +11,19 @@ import {MatPaginator} from "@angular/material/paginator";
 export class ProductsListComponent {
   @Input() set products(value: IProduct[]) {
     this._products = value
-    this.paginator.pageIndex = 0;
     this.onPageChange({pageIndex: 0, pageSize: 5})
+    if (this.paginator) {
+      this.paginator.pageIndex = 0
+    }
   }
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatPaginator) paginator: MatPaginator
 
   _products: IProduct[]
   currentProductsToShow: IProduct[]
 
   onPageChange($event): void {
     this.currentProductsToShow = this._products?.slice($event.pageIndex * $event.pageSize,
-      $event.pageIndex * $event.pageSize + $event.pageSize);
+      $event.pageIndex * $event.pageSize + $event.pageSize)
   }
 }
