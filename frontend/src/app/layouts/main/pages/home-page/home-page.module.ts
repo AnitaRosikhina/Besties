@@ -7,17 +7,19 @@ import {CommonButtonModule} from "../../../../shared/components/common-button/co
 import {ProductCardModule} from "../../../../shared/components/product-card/product-card.module";
 import {ProductService} from "../../../../shared/services/product.service";
 import {HttpClientModule} from "@angular/common/http";
+import {ProductsListModule} from "../../../../shared/components/products-list/products-list.module";
 
 @NgModule({
   declarations: [HomePageComponent],
-  imports: [
-    CommonModule,
-    HomePageRoutingModule,
-    IvyCarouselModule,
-    CommonButtonModule,
-    ProductCardModule,
-    HttpClientModule
-  ],
+    imports: [
+        CommonModule,
+        HomePageRoutingModule,
+        IvyCarouselModule,
+        CommonButtonModule,
+        ProductCardModule,
+        HttpClientModule,
+        ProductsListModule
+    ],
   providers: [ProductService]
 })
 export class HomePageModule { }

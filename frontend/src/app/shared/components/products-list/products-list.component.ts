@@ -8,5 +8,16 @@ import {IProduct} from "../../../layouts/admin/pages/product-addition-page/produ
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProductsListComponent {
-  @Input() products: IProduct[]
+  @Input() set products(value: IProduct[]) {
+    this._products = value
+    this.onPageChange({pageIndex: 0, pageSize: 5})
+  }
+
+  _products: IProduct[]
+  currentProductsToShow: IProduct[] = []
+
+  onPageChange($event): void {
+    this.currentProductsToShow = this._products?.slice($event.pageIndex * $event.pageSize,
+      $event.pageIndex * $event.pageSize + $event.pageSize);
+  }
 }

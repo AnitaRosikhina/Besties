@@ -115,9 +115,7 @@
 </section>
 <section>
   <div class="title_shop">Our Pets' Choice</div>
-  <div class="cards">
-    <app-product-card *ngFor="let product of products$ | async" [product]="product"></app-product-card>
-  </div>
+  <app-products-list [products]="products$ | async"></app-products-list>
 </section>
 <section>
   <div class="section_brands">

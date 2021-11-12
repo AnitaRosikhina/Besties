@@ -1,3 +1,10 @@
 <div class="cards">
-  <app-product-card *ngFor="let product of products" [product]="product"></app-product-card>
+  <app-product-card *ngFor="let product of currentProductsToShow" [product]="product"></app-product-card>
 </div>
+<mat-paginator
+  aria-label="Select page"
+  [length]="_products?.length"
+  [pageSize]="5"
+  [pageSizeOptions]="[5, 10, 25]"
+  (page)="onPageChange($event)"
+></mat-paginator>
