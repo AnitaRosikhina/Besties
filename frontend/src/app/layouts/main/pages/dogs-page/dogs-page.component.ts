@@ -24,4 +24,8 @@ export class DogsPageComponent implements OnInit {
     this.subcategories$ = this.subcategoryService.getByCategory('Dogs')
       .pipe(map(el => el.map(elem => elem.name)))
   }
+
+  filterBySubcategory(event: string): void {
+    this.products$ = this.productsService.getByCategoryAndSubCategory('Dogs', event)
+  }
 }
