@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-sort-by',
@@ -7,10 +7,10 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SortByComponent implements OnInit {
+  @Output() sortByItem = new EventEmitter<string>()
 
   constructor() { }
 
   ngOnInit(): void {
   }
-
 }

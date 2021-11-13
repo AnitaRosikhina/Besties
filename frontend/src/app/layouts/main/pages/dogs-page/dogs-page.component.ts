@@ -13,8 +13,10 @@ import {map} from "rxjs/operators";
 })
 export class DogsPageComponent implements OnInit {
 
-  products$: Observable<IProduct[]>;
-  subcategories$: Observable<string[]>;
+  products$: Observable<IProduct[]>
+  subcategories$: Observable<string[]>
+
+  sortBy: string
 
   constructor(private productsService: ProductService,
               private subcategoryService: SubcategoryService) { }
