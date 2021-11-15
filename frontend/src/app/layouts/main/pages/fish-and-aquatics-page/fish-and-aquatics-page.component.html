@@ -1,1 +1,6 @@
-<p>fish-and-aquatics-page works!</p>
+<h2 class="title">Fish & Aquatics</h2>
+<div class="sort_filter">
+  <app-filter-by [items]="subcategories$ | async" (filterByItem)="filterBySubcategory($event)"></app-filter-by>
+  <app-sort-by (sortByItem)="sortBy = $event"></app-sort-by>
+</div>
+<app-products-list [products]="products$ | async" [sortBy]="sortBy"></app-products-list>

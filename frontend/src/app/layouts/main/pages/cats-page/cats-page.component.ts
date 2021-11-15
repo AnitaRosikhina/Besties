@@ -16,6 +16,8 @@ export class CatsPageComponent implements OnInit {
   products$: Observable<IProduct[]>;
   subcategories$: Observable<string[]>;
 
+  sortBy: string
+
   constructor(private productsService: ProductService, private subcategoryService: SubcategoryService) { }
 
   ngOnInit(): void {
@@ -24,4 +26,7 @@ export class CatsPageComponent implements OnInit {
       .pipe(map(el => el.map(elem => elem.name)))
   }
 
+  filterBySubcategory(event: string): void {
+    this.products$ = this.productsService.getByCategoryAndSubCategory('Cats', event)
+  }
 }

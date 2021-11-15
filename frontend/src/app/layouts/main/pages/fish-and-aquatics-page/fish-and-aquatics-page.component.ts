@@ -1,4 +1,9 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import {ProductService} from "../../../../shared/services/product.service";
+import {SubcategoryService} from "../../../admin/pages/subcategories-addition-page/services/subcategory.service";
+import {Observable} from "rxjs";
+import {IProduct} from "../../../admin/pages/product-addition-page/product-addition-page.component";
+import {map} from "rxjs/operators";
 
 @Component({
   selector: 'app-fish-and-aquatics-page',
@@ -8,9 +13,21 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 })
 export class FishAndAquaticsPageComponent implements OnInit {
 
-  constructor() { }
+  products$: Observable<IProduct[]>
+  subcategories$: Observable<string[]>
+
+  sortBy: string
+
+  constructor(private productsService: ProductService,
+              private subcategoryService: SubcategoryService) { }
 
   ngOnInit(): void {
+    this.products$ = this.productsService.getByCategory('Fish')
+    this.subcategories$ = this.subcategoryService.getByCategory('Fish')
+      .pipe(map(el => el.map(elem => elem.name)))
   }
 
+  filterBySubcategory(event: string): void {
+    this.products$ = this.productsService.getByCategoryAndSubCategory('Fish', event)
+  }
 }
