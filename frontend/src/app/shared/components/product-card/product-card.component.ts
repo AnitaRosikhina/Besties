@@ -41,6 +41,6 @@ export class ProductCardComponent implements OnInit {
   openSnackBar() {
     this._snackBar.open('Product added to cart', '', {
       duration: 3000
-    });
+    })
   }
 }

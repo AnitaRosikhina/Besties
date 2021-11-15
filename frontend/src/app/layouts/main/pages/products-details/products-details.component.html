@@ -1,8 +1,65 @@
-<div>ASD/ASD/ASD</div>
-<div>
-  <div>
-    <img src="">
-    <div class="description"></div>
+<div class="content">
+  <div class="navigation">
+    {{(product$ | async)?.category}}/
+    {{(product$ | async)?.subcategory}}/
+    {{(product$ | async)?.name}}
   </div>
-  <div></div>
+  <div class="details">
+    <div class="image">
+      <img [src]='(product$ | async)?.imageUrl'>
+    </div>
+    <div class="block_info">
+      <div>
+        <div class="title">{{(product$ | async)?.name}}</div>
+        <div class="price">{{(product$ | async)?.price | currency}}</div>
+      </div>
+      <div>
+        <div>Quantity</div>
+        <div class="count">
+          <div>{{ count }}</div>
+          <div class="switch">
+            <div (click)="changeCount(true)">∧</div>
+            <div (click)="changeCount(false)">∨</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <app-common-button
+          text="Add to Card"
+          [classes]="['button_add_modal']"
+          (click)="openSnackBar()"
+        ></app-common-button>
+      </div>
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              PRODUCT INFO
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <p>{{(product$ | async)?.description}}</p>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              RETURN & REFUND POLICY
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <p>I’m a Return and Refund policy. I’m a great place to let your customers know what to do in case they are
+            dissatisfied with their purchase. Having a straightforward refund or exchange policy is a great way to build
+            trust and reassure your customers that they can buy with confidence.</p>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              SHIPPING INFO
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <p>I'm a shipping policy. I'm a great place to add more information about your shipping methods, packaging and
+            cost. Providing straightforward information about your shipping policy is a great way to build trust and
+            reassure your customers that they can buy from you with confidence.</p>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+  </div>
 </div>

@@ -1,0 +1,82 @@
+@import "src/assets/styles/variables";
+
+.content {
+  padding: 40px 120px;
+  @media screen and (max-width: $media-md) {
+      padding: 30px 80px;
+  }
+  @media screen and (max-width: $media-sm) {
+      padding: 30px;
+  }
+
+  .navigation {
+    font-family: "Catamaran", sans-serif;
+    font-size: 16px;
+    letter-spacing: 2px;
+    margin: 0 0 20px;
+  }
+
+  .details {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .image {
+      width: 50%;
+      @media screen and (max-width: $media-sm) {
+        width: 100%;
+      }
+
+      img {
+        width: 100%;
+        @media screen and (max-width: $media-sm) {
+          width: 80%;
+        }
+      }
+    }
+
+    .block_info {
+      display: flex;
+      flex-direction: column;
+      width: 45%;
+      margin: 0 0 0 40px;
+      @media screen and (max-width: $media-sm) {
+        width: 100%;
+        margin: 0;
+      }
+
+      .title {
+        font-size: 19px;
+        font-family: "Poppins", sans-serif;
+        color: #e62200;
+        font-weight: bold;
+      }
+
+      .price {
+        font-size: 16px;
+        font-family: "Catamaran", sans-serif;
+        color: #575757;
+        margin: 12px 0;
+      }
+    }
+
+    .count {
+      width: 76px;
+      height: 40px;
+      border: 1px solid #c9c9c9;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 6px 0 10px;
+      margin: 10px 0 0;
+      &:hover .switch {
+        display: block;
+      }
+
+      .switch {
+        display: none;
+        transition: 1s;
+      }
+    }
+  }
+}

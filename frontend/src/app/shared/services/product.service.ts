@@ -12,6 +12,10 @@ export class ProductService {
     return this.http.get<IProduct[]>('http://localhost:3000/product')
   }
 
+  getById(id: string): Observable<IProduct> {
+   return this.http.get<IProduct>(`http://localhost:3000/product/${id}`)
+  }
+
   getByCategory(category: string): Observable<IProduct[]> {
     return this.http.get<IProduct[]>(`http://localhost:3000/product/${category}`);
   }
