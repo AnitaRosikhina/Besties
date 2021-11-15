@@ -1,9 +1,9 @@
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {ProductService} from "../../../../shared/services/product.service";
 import {Observable} from "rxjs";
-import {IProduct} from "../../../admin/pages/product-addition-page/product-addition-page.component";
 import {ActivatedRoute} from "@angular/router";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {IProduct} from "../../../../shared/models/product.model";
 
 @Component({
   selector: 'app-products-details',

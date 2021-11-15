@@ -8,16 +8,8 @@ import {map} from "rxjs/operators";
 import {ProductService} from "../../../../shared/services/product.service";
 import {DecimalPipe, TitleCasePipe} from "@angular/common";
 import {MatPaginator} from '@angular/material/paginator';
+import {IProduct} from "../../../../shared/models/product.model";
 
-export interface IProduct {
-  _id?: string
-  category: string
-  subcategory: string
-  name: string
-  imageUrl: string
-  price: string
-  description: string
-}
 
 @Component({
   selector: 'app-product-addition-page',

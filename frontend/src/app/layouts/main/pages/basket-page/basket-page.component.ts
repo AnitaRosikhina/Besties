@@ -1,5 +1,5 @@
 import {Component, OnInit, ChangeDetectionStrategy, Input} from '@angular/core';
-import {IProduct} from "../../../admin/pages/product-addition-page/product-addition-page.component";
+import {IProduct} from "../../../../shared/models/product.model";
 
 @Component({
   selector: 'app-basket-page',

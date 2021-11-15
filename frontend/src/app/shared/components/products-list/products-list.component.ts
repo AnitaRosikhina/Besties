@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, Component, Input, ViewChild} from '@angular/core';
-import {IProduct} from "../../../layouts/admin/pages/product-addition-page/product-addition-page.component";
 import {MatPaginator} from "@angular/material/paginator";
+import {IProduct} from "../../models/product.model";
 
 @Component({
   selector: 'app-products-list',

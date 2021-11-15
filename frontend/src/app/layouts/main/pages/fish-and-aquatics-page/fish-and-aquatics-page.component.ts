@@ -2,8 +2,8 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import {ProductService} from "../../../../shared/services/product.service";
 import {SubcategoryService} from "../../../admin/pages/subcategories-addition-page/services/subcategory.service";
 import {Observable} from "rxjs";
-import {IProduct} from "../../../admin/pages/product-addition-page/product-addition-page.component";
 import {map} from "rxjs/operators";
+import {IProduct} from "../../../../shared/models/product.model";
 
 @Component({
   selector: 'app-fish-and-aquatics-page',

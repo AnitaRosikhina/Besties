@@ -1,8 +1,8 @@
 import {Component, OnInit, ChangeDetectionStrategy, Input} from '@angular/core';
 import {MatDialog} from "@angular/material/dialog";
 import {ProductModalComponent} from "../product-modal/product-modal.component";
-import {IProduct} from "../../../layouts/admin/pages/product-addition-page/product-addition-page.component";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {IProduct} from "../../models/product.model";
 
 @Component({
   selector: 'app-product-card',

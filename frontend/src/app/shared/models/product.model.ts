@@ -1,8 +1,9 @@
-export interface IProductRequest {
-  name: string
-  price: number
-  imageUrl: string
-  description: string
+export interface IProduct {
+  _id?: string
   category: string
   subcategory: string
+  name: string
+  imageUrl: string
+  price: string
+  description: string
 }
