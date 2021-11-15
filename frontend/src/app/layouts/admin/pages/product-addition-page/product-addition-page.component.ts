@@ -10,6 +10,7 @@ import {DecimalPipe, TitleCasePipe} from "@angular/common";
 import {MatPaginator} from '@angular/material/paginator';
 
 export interface IProduct {
+  _id?: string
   category: string
   subcategory: string
   name: string

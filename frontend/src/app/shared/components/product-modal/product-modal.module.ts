@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {ProductModalComponent} from "./product-modal.component";
 import {CommonButtonModule} from "../common-button/common-button.module";
 import {MatDialogModule} from "@angular/material/dialog";
@@ -8,12 +8,13 @@ import {RouterModule} from "@angular/router";
 
 @NgModule({
   declarations: [ProductModalComponent],
-    imports: [
-        CommonModule,
-        CommonButtonModule,
-        MatDialogModule,
-        ProductsDetailsRoutingModule,
-        RouterModule
-    ]
+  imports: [
+    CommonModule,
+    CommonButtonModule,
+    MatDialogModule,
+    ProductsDetailsRoutingModule,
+    RouterModule
+  ]
 })
-export class ProductModalModule { }
+export class ProductModalModule {
+}

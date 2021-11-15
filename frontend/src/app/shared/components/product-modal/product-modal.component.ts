@@ -1,10 +1,9 @@
-import {Component, OnInit, ChangeDetectionStrategy, Input, Inject} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA} from "@angular/material/dialog";
-import {IProductRequest} from "../../models/product.model";
-
+import {IProduct} from "../../../layouts/admin/pages/product-addition-page/product-addition-page.component";
 
 interface DialogData {
-  product: IProductRequest
+  product: IProduct
 }
 
 @Component({
@@ -14,7 +13,6 @@ interface DialogData {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProductModalComponent implements OnInit {
-  @Input() product: IProductRequest
 
   count = 1
 
@@ -23,7 +21,7 @@ export class ProductModalComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  changeCount(product: IProductRequest, status: boolean) {
+  changeCount(status: boolean) {
     if(status) {
       ++this.count
     }
