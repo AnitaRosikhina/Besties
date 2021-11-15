@@ -14,8 +14,8 @@ export class ProductController {
         return this.productService.getAll()
     }
 
-    @Get(':id')
-    getById(@Param('id') id: string): Promise<Product>{
+    @Get('id/:id')
+    getById(@Param('id') id: string): Promise<Product> {
         return this.productService.getById(id)
     }
 

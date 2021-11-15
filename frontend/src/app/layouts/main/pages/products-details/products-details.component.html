@@ -1,17 +1,17 @@
-<div class="content">
+<div class="content" *ngIf="product$ | async as product">
   <div class="navigation">
-    {{(product$ | async)?.category}}/
-    {{(product$ | async)?.subcategory}}/
-    {{(product$ | async)?.name}}
+    {{product.category}}/
+    {{product.subcategory}}/
+    {{product.name}}
   </div>
   <div class="details">
     <div class="image">
-      <img [src]='(product$ | async)?.imageUrl'>
+      <img [src]='product.imageUrl'>
     </div>
     <div class="block_info">
       <div>
-        <div class="title">{{(product$ | async)?.name}}</div>
-        <div class="price">{{(product$ | async)?.price | currency}}</div>
+        <div class="title">{{product.name}}</div>
+        <div class="price">{{product.price | currency}}</div>
       </div>
       <div>
         <div>Quantity</div>
@@ -37,7 +37,7 @@
               PRODUCT INFO
             </mat-panel-title>
           </mat-expansion-panel-header>
-          <p>{{(product$ | async)?.description}}</p>
+          <p>{{product.description}}</p>
         </mat-expansion-panel>
         <mat-expansion-panel>
           <mat-expansion-panel-header>
