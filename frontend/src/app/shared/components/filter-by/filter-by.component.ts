@@ -11,17 +11,27 @@ export class FilterByComponent implements OnInit {
   @Input() items: string[]
 
   @Output() filterByItem = new EventEmitter<string>()
+  @Output() filterByPrice = new EventEmitter<{ value: number, highValue: number }>()
 
-  value: number = 40;
-  highValue: number = 60;
+  value = 1
+  highValue = 135
   options: Options = {
-    floor: 0,
-    ceil: 100
-  };
+    floor: 1,
+    ceil: 135
+  }
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  filterByPriceLW($event: number) {
+    this.value = $event
+    this.filterByPrice.emit({value: this.value, highValue: this.highValue})
+  }
+
+  filterByPriceHW($event: number) {
+    this.highValue = $event
+    this.filterByPrice.emit({value: this.value, highValue: this.highValue})
+  }
 }

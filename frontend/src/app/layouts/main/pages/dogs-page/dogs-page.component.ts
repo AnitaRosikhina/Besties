@@ -17,6 +17,7 @@ export class DogsPageComponent implements OnInit {
   subcategories$: Observable<string[]>
 
   sortBy: string
+  filterByPrice
 
   constructor(private productsService: ProductService,
               private subcategoryService: SubcategoryService) { }

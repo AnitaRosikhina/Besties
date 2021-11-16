@@ -22,7 +22,13 @@
             Price
           </mat-panel-title>
         </mat-expansion-panel-header>
-        <ngx-slider [(value)]="value" [(highValue)]="highValue" [options]="options"></ngx-slider>
+        <ngx-slider
+          [(value)]="value"
+          [(highValue)]="highValue"
+          [options]="options"
+          (valueChange)="filterByPriceLW($event)"
+          (highValueChange)="filterByPriceHW($event)"
+        ></ngx-slider>
       </mat-expansion-panel>
     </mat-expansion-panel>
   </mat-accordion>
