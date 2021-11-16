@@ -1,17 +1,17 @@
-<div class="content" *ngIf="product$ | async as product">
+<div class="content">
   <div class="navigation">
-    {{product.category}}/
-    {{product.subcategory}}/
-    {{product.name}}
+    {{product?.category}}/
+    {{product?.subcategory}}/
+    {{product?.name}}
   </div>
   <div class="details">
     <div class="image">
-      <img [src]='product.imageUrl'>
+      <img [src]="product?.imageUrl">
     </div>
     <div class="block_info">
       <div>
-        <div class="title">{{product.name}}</div>
-        <div class="price">{{product.price | currency}}</div>
+        <div class="title">{{product?.name}}</div>
+        <div class="price">{{product?.price | currency}}</div>
       </div>
       <div>
         <div>Quantity</div>
@@ -27,7 +27,7 @@
         <app-common-button
           text="Add to Card"
           [classes]="['button_add_modal']"
-          (click)="openSnackBar()"
+          (click)="addToBasket()"
         ></app-common-button>
       </div>
       <mat-accordion>
@@ -37,7 +37,7 @@
               PRODUCT INFO
             </mat-panel-title>
           </mat-expansion-panel-header>
-          <p>{{product.description}}</p>
+          <p>{{product?.description}}</p>
         </mat-expansion-panel>
         <mat-expansion-panel>
           <mat-expansion-panel-header>

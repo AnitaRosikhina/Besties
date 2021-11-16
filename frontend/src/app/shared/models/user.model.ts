@@ -1,8 +1,6 @@
-import {IProduct} from "./product.model";
-
 export interface IUser {
+  _id?: string
   name?: string
   email: string
   password: string
-  productsInBasket: IProduct[]
 }

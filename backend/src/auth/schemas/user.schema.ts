@@ -16,8 +16,8 @@ export class User {
     @Prop({required: true, minlength: 6})
     password: string
 
-    @Prop({type: mongoose.Schema.Types.ObjectId, ref: 'Product', default: []})
-    productsInBasket: Product
+    @Prop({type: [{type: mongoose.Schema.Types.ObjectId, ref: 'Product'}], default: []})
+    productsInBasket: Product[]
 }
 
 export const UserSchema = SchemaFactory.createForClass(User)

@@ -20,7 +20,11 @@
         </div>
       </div>
       <div>
-        <app-common-button text="Add to Card" [classes]="['button_add_modal']"></app-common-button>
+        <app-common-button
+          text="Add to Card"
+          [classes]="['button_add_modal']"
+          (click)="addToBasket()"
+        ></app-common-button>
       </div>
       <div class="details" [routerLink]="['details', data.product._id]" [mat-dialog-close]>
         View More Details

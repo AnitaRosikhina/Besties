@@ -1,8 +1,11 @@
-import {Component, OnInit, ChangeDetectionStrategy, Input} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
 import {MatDialog} from "@angular/material/dialog";
 import {ProductModalComponent} from "../product-modal/product-modal.component";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {IProduct} from "../../models/product.model";
+import {BasketService} from "../../services/basket.service";
+import {LoginService} from "../../services/login.service";
+import {LoginModalComponent} from "../login-modal/login-modal.component";
 
 @Component({
   selector: 'app-product-card',
@@ -15,7 +18,9 @@ export class ProductCardComponent implements OnInit {
   count = 1;
 
   constructor(public dialog: MatDialog,
-              private _snackBar: MatSnackBar) { }
+              private _snackBar: MatSnackBar,
+              private loginService: LoginService,
+              private basketService: BasketService) { }
 
   ngOnInit(): void {
   }
@@ -29,18 +34,28 @@ export class ProductCardComponent implements OnInit {
   }
 
   openDialog() {
-    const dialogRef = this.dialog.open(ProductModalComponent, {
+    this.dialog.open(ProductModalComponent, {
       data: {
         product: this.product
       }
     });
-
-    dialogRef.afterClosed().subscribe();
   }
 
-  openSnackBar() {
-    this._snackBar.open('Product added to cart', '', {
-      duration: 3000
+  addToBasket(): void {
+    this.basketService.add({
+      ...this.product,
+      userId: this.loginService.getUserId(),
+      amount: this.count
+    }).subscribe(() => {
+      this._snackBar.open('Product added to cart', 'Close', {
+        duration: 3000
+      })
+    }, () => {
+      // logic if not logged in
+      if (!this.loginService.getUserId()) {
+        this.dialog.open(LoginModalComponent);
+        // TODO cdr doesn't work
+      }
     })
   }
 }

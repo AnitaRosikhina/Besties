@@ -3,7 +3,7 @@ import {IUser} from "../models/user.model";
 import {Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 import {tap} from "rxjs/operators";
-import {TOKEN_NAME} from "../constants/tokens-name";
+import {LOGGED_USER_ID, TOKEN_NAME} from "../constants/tokens-name";
 import {JwtHelperService} from "@auth0/angular-jwt";
 
 @Injectable()
@@ -28,9 +28,18 @@ export class LoginService {
 
   logout(): void {
     localStorage.removeItem(TOKEN_NAME)
+    localStorage.removeItem(LOGGED_USER_ID)
+  }
+
+  getUser(email: string): Observable<IUser> {
+    return this.http.get<IUser>(`http://localhost:3000/auth/user/${email}`)
   }
 
   getDecodedUser(): IUser | null {
     return this.jwtHelperService.decodeToken()
+  }
+
+  getUserId(): string {
+    return localStorage.getItem(LOGGED_USER_ID)
   }
 }

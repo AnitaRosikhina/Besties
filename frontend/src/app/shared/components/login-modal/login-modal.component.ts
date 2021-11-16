@@ -3,6 +3,9 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {MatDialog, MatDialogRef} from "@angular/material/dialog";
 import {RegistrationModalComponent} from "../registration-modal/registration-modal.component";
 import {LoginService} from "../../services/login.service";
+import {LOGGED_USER_ID} from "../../constants/tokens-name";
+import {tap} from "rxjs/operators";
+import {merge} from "rxjs";
 
 @Component({
   selector: 'app-login-modal',
@@ -28,7 +31,10 @@ export class LoginModalComponent implements OnInit {
   }
 
   submit(): void {
-    this.loginService.login(this.form.value).subscribe(() => {
+    merge(
+      this.loginService.getUser(this.form.value.email).pipe(tap((res) => localStorage.setItem(LOGGED_USER_ID, res._id))),
+      this.loginService.login(this.form.value)
+    ).subscribe(() => {
       this.dialogRef.close()
     })
   }
