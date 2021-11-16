@@ -170,25 +170,11 @@
     .block_basket {
       display: flex;
       align-items: center;
-      width: 50px;
+      width: 35px;
       justify-content: space-between;
 
       .icon_basket {
         width: 25px;
-        height: 21px;
-      }
-
-      .count {
-        width: 20px;
-        height: 20px;
-        background-color: $thirdColor;
-        border-radius: 50%;
-        text-align: center;
-
-        .sum {
-          font-family: "Catamaran", sans-serif;
-          color: $firstColor;
-        }
       }
     }
   }
