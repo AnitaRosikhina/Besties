@@ -8,7 +8,7 @@ import {CreateBasketProductDto} from "./dto/create-basket-product.dto";
 export class BasketService {
     constructor(@InjectModel(BasketProduct.name) private basketProductModel: Model<BasketProductDocument>) {}
 
-    async getByUserId(userId): Promise<BasketProduct[]> {
+    async getAllByUserId(userId): Promise<BasketProduct[]> {
         return this.basketProductModel.find({userId}).exec()
     }
 
@@ -25,7 +25,11 @@ export class BasketService {
         }
     }
 
-    async remove(id: string): Promise<BasketProduct> {
-        return this.basketProductModel.findByIdAndRemove(id)
+    async remove(userId: string, _id: string) {
+        return this.basketProductModel.deleteOne({userId, _id})
+    }
+
+    async removeAllByUserId(userId: string) {
+        return this.basketProductModel.deleteMany({userId}).exec()
     }
 }

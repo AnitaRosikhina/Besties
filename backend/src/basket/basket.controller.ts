@@ -9,10 +9,10 @@ export class BasketController {
     constructor(private basketService: BasketService) {}
 
     @Get(':userId')
-    getByUserId(
+    getAllByUserId(
         @Param('userId') userId: string,
     ): Promise<BasketProduct[]> {
-        return this.basketService.getByUserId(userId)
+        return this.basketService.getAllByUserId(userId)
     }
 
     @Post()
@@ -20,8 +20,16 @@ export class BasketController {
         return this.basketService.create(createBasketProductDto)
     }
 
-    @Delete(':id')
-    remove(@Param('id') id: string): Promise<BasketProduct> {
-        return this.basketService.remove(id)
+    @Delete(':userId/:id')
+    remove(
+        @Param('userId') userId: string,
+        @Param('id') id: string
+    ) {
+        return this.basketService.remove(userId, id)
+    }
+
+    @Delete('checkout/:id')
+    removeAllByUserId(@Param('id') id: string) {
+        return this.basketService.removeAllByUserId(id)
     }
 }

@@ -1,5 +1,8 @@
-import {Component, OnInit, ChangeDetectionStrategy, Input} from '@angular/core';
-import {IProduct} from "../../../../shared/models/product.model";
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit} from '@angular/core';
+import {Observable} from "rxjs";
+import {IBasket} from "../../../../shared/models/basket.model";
+import {BasketService} from "../../../../shared/services/basket.service";
+import {LoginService} from "../../../../shared/services/login.service";
 
 @Component({
   selector: 'app-basket-page',
@@ -8,20 +11,46 @@ import {IProduct} from "../../../../shared/models/product.model";
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BasketPageComponent implements OnInit {
-  @Input() product: IProduct
-  count = 1;
+  basketProducts$: Observable<IBasket[]>;
 
-  constructor() { }
+  constructor(private basketService: BasketService,
+              private loginService: LoginService,
+              private cdr: ChangeDetectorRef) { }
 
   ngOnInit(): void {
+    this.basketProducts$ = this.basketService.getAllByUserId(this.loginService.getUserId())
   }
 
-  changeCount(product: IProduct, increase: boolean) {
+  changeCount(basketProduct: IBasket, increase: boolean) {
     if(increase) {
-      ++this.count
-    } else if(!increase && this.count > 1) {
-      --this.count
+      ++basketProduct.amount
+    } else if(!increase && basketProduct.amount > 1) {
+      --basketProduct.amount
     }
   }
 
+  getTotal(basketProduct: IBasket): number {
+    return basketProduct.amount * +basketProduct.price
+  }
+
+  totalSum(basketProducts: IBasket[]): number {
+    return basketProducts.reduce((acc, next) => {
+      return acc + +next.price * next.amount
+    }, 0)
+  }
+
+  checkout(): void {
+    this.basketService.checkout(this.loginService.getUserId()).subscribe(() => {
+      this.basketProducts$ = this.basketService.getAllByUserId(this.loginService.getUserId())
+      this.cdr.detectChanges()
+      // this._snackbar
+    })
+  }
+
+  removeBasketProduct({userId, _id}: IBasket) {
+    this.basketService.removeById(userId, _id).subscribe(() => {
+      this.basketProducts$ = this.basketService.getAllByUserId(this.loginService.getUserId())
+      this.cdr.detectChanges()
+    })
+  }
 }
