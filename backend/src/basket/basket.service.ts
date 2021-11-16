@@ -30,6 +30,6 @@ export class BasketService {
     }
 
     async removeAllByUserId(userId: string) {
-        return this.basketProductModel.deleteMany({userId}).exec()
+        return this.basketProductModel.deleteMany({userId})
     }
 }

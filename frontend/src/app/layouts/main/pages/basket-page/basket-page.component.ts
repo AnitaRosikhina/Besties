@@ -3,6 +3,7 @@ import {Observable} from "rxjs";
 import {IBasket} from "../../../../shared/models/basket.model";
 import {BasketService} from "../../../../shared/services/basket.service";
 import {LoginService} from "../../../../shared/services/login.service";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-basket-page',
@@ -15,7 +16,8 @@ export class BasketPageComponent implements OnInit {
 
   constructor(private basketService: BasketService,
               private loginService: LoginService,
-              private cdr: ChangeDetectorRef) { }
+              private cdr: ChangeDetectorRef,
+              private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.basketProducts$ = this.basketService.getAllByUserId(this.loginService.getUserId())
@@ -43,7 +45,9 @@ export class BasketPageComponent implements OnInit {
     this.basketService.checkout(this.loginService.getUserId()).subscribe(() => {
       this.basketProducts$ = this.basketService.getAllByUserId(this.loginService.getUserId())
       this.cdr.detectChanges()
-      // this._snackbar
+      this._snackBar.open('Order is processed!', 'Close', {
+        duration: 3000
+      })
     })
   }
 

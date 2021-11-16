@@ -20,7 +20,7 @@ export class BasketController {
         return this.basketService.create(createBasketProductDto)
     }
 
-    @Delete(':userId/:id')
+    @Delete('deleteOne/:userId/:id')
     remove(
         @Param('userId') userId: string,
         @Param('id') id: string
@@ -28,8 +28,8 @@ export class BasketController {
         return this.basketService.remove(userId, id)
     }
 
-    @Delete('checkout/:id')
-    removeAllByUserId(@Param('id') id: string) {
-        return this.basketService.removeAllByUserId(id)
+    @Delete('checkout/:userId')
+    removeAllByUserId(@Param('userId') userId: string) {
+        return this.basketService.removeAllByUserId(userId)
     }
 }

@@ -21,6 +21,6 @@ export class BasketService {
   }
 
   removeById(userId: string, id: string): Observable<IBasket> {
-    return this.http.delete<IBasket>(`http://localhost:3000/basket/${userId}/${id}`)
+    return this.http.delete<IBasket>(`http://localhost:3000/basket/deleteOne/${userId}/${id}`)
   }
 }
