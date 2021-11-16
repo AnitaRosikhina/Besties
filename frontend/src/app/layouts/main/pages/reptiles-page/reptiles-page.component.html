@@ -1,1 +1,14 @@
-<p>reptiles-page works!</p>
+<h2 class="title">Dogs</h2>
+<div class="sort_filter">
+  <app-filter-by
+    [items]="subcategories$ | async"
+    (filterByItem)="filterBySubcategory($event)"
+    (filterByPrice)="filterByPrice = $event"
+  ></app-filter-by>
+  <app-sort-by (sortByItem)="sortBy = $event"></app-sort-by>
+</div>
+<app-products-list
+  [products]="products$ | async"
+  [sortBy]="sortBy"
+  [filterByPrice]="filterByPrice"
+></app-products-list>

@@ -5,13 +5,19 @@ import { SmallAnimalsPageRoutingModule } from './small-animals-page-routing.modu
 import {SmallAnimalsPageComponent} from "./small-animals-page.component";
 import {ProductService} from "../../../../shared/services/product.service";
 import {SubcategoryService} from "../../../admin/pages/subcategories-addition-page/services/subcategory.service";
+import {FilterByModule} from "../../../../shared/components/filter-by/filter-by.module";
+import {SortByModule} from "../../../../shared/components/sort-by/sort-by.module";
+import {ProductsListModule} from "../../../../shared/components/products-list/products-list.module";
 
 
 @NgModule({
   declarations: [SmallAnimalsPageComponent],
   imports: [
     CommonModule,
-    SmallAnimalsPageRoutingModule
+    SmallAnimalsPageRoutingModule,
+    FilterByModule,
+    SortByModule,
+    ProductsListModule
   ],
   providers: [ProductService, SubcategoryService]
 })
